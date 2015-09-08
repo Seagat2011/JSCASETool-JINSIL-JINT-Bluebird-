@@ -55,9 +55,7 @@ HTML5/CSS3 inline javascript editor (fast)  Supports inline javascript, stacktra
 - a => x, property assignment (sugar), equivalent to, a => x <= x, equivalent to, a.x = x
 - a <= new x, assignment or macro (copyof), equivalent to, var a = x; var b = a
 - new a => x, property assignment, equivalent to, new a => x <= x, 
-  equivalent to, 
-  var b = new a() 
-  b.x = x        
+  equivalent to, var b = new a(); b.x = x        
 ```
 
 ### EXAMPLE #1 
