@@ -183,6 +183,7 @@ HTML5/CSS3 inline javascript editor (fast)  Supports inline javascript, stacktra
 }
 (indent<2) {
     (!_){
+        _
         callstack <= updatecallstack(_,callstack,indent)
         __ => [gpi <= _ => godparent => indent <= callstack => [0] => indent] => [gpl <= _ => godparent => level <= callstack => [0] => level] => [gpc <= _ => godparent => codebody <= 5] => push([minor_tab+'this["',w,'"] => (',[],'){\n',[],'\n'+minor_tab+'}\n'])
     }
@@ -190,6 +191,7 @@ HTML5/CSS3 inline javascript editor (fast)  Supports inline javascript, stacktra
 } 
 (indent) {
     (!_){
+        _
         callstack <= updatecallstack(_,callstack,indent)
         __ => [gpi] => [gpl] => [gpc] => unshift([minor_tab+'this["',w,'"] => (',[],'){\n',[],'\n'+minor_tab+'}\n'])
     }
