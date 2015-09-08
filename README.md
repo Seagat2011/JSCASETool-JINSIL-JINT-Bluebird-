@@ -176,13 +176,14 @@ HTML5/CSS3 inline javascript editor (fast)  Supports inline javascript, stacktra
 (indent<1) {
     (!_){
         _ <= archive => w
+        ( __ <= entity ) => [0] => push(['\nfunction _',w,'(',[],'){\n',[],'\n}\n_',w,'.prototype = new Object()\n',w,' = new _',w,'()'])
     }
     callstack <= updatecallstack( _,callstack,indent)
 }
 (indent<2) {
     (!_){
         callstack <= updatecallstack(_,callstack,indent)
-        ( __ <= entity ) => [gpi <= _ => godparent => indent <= callstack => [0] => indent] => [gpl <= _ => godparent => level <= callstack => [0] => level] => [gpc <= _ => godparent => codebody <= 5] => push([minor_tab+'this["',w,'"] => (',[],'){\n',[],'\n'+minor_tab+'}\n'])
+        __ => [gpi <= _ => godparent => indent <= callstack => [0] => indent] => [gpl <= _ => godparent => level <= callstack => [0] => level] => [gpc <= _ => godparent => codebody <= 5] => push([minor_tab+'this["',w,'"] => (',[],'){\n',[],'\n'+minor_tab+'}\n'])
     }
     __ => [indent] => push([_ => parent => s_name <= callstack => [0] => s_name + '.',w,'(',[],')','\n'])
 } 
