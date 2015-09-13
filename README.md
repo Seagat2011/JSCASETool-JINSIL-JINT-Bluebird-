@@ -172,24 +172,23 @@ HTML5/CSS3 inline javascript editor (fast)  Supports inline javascript, stacktra
 
 ```javascript
 (indent<1) {
-    (!_){
-        _ <= archive => w
-        ( __ <= entity ) => [0] => push(['\nfunction _',w,'(',[],'){\n',[],'\n}\n_',w,'.prototype = new Object()\n',w,' = new _',w,'()'])
-       _ => level <= __ => [0] => length-1
+    ( !( _ <= archive => [w] ) ){
+        _  => indent <= 0
+        ( __ <= entity ) => [0] => push(['\nfunction _',w,'(',[],'){\n',[],'\n}\n_',w,'.prototype = new Object()\n',w,' = new _',w
     }
-    callstack <= updatecallstack( _,callstack,indent)
+    callstack <= updatecallstack(_,callstack,indent)
 }
 (indent<2) {
     (!_){
-        _
+        _  => indent
         callstack <= updatecallstack(_,callstack,indent)
         __ => [gpi <= _ => godparent => indent <= callstack => [0] => indent] => [gpl <= _ => godparent => level <= callstack => [0] => level] => [gpc <= _ => godparent => codebody <= 5] => push([minor_tab+'this["',w,'"] => (',[],'){\n',[],'\n'+minor_tab+'}\n'])
     }
     __ => [indent] => push([_ => parent => s_name <= callstack => [0] => s_name + '.',w,'(',[],')','\n'])
 } 
-(indent) {
+(indent>1) {
     (!_){
-        _
+        _  => indent
         callstack <= updatecallstack(_,callstack,indent)
         __ => [gpi] => [gpl] => [gpc] => unshift([minor_tab+'this["',w,'"] => (',[],'){\n',[],'\n'+minor_tab+'}\n'])
     }

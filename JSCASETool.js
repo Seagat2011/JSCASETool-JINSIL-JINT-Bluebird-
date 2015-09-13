@@ -15,11 +15,11 @@ STYLEGUIDE:
   http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
     
 REFERENCES:
-  JSCASETool/README
+  JSCASETool / README
 
 DESCRIPTION: 
-  JINSIL / JINT Bluebird converts an entire 
-  stacktrace, inline macros, and vars to javascript
+  JINSIL / JINT Bluebird converts stacktraces,
+  inline macros, and vars to javascript
 
 INPUT:
   entity => godparent => indent <= indent
@@ -30,7 +30,7 @@ OUTPUT:
   entity["godparent"]["indent"] = indent
   
 SCRIPT TYPE: 
-  translationtool
+  syntax translation tool
 
 */
 
@@ -331,28 +331,20 @@ function peekSymbol(me,i,cnt,r){
     }
     return a
 }
-function buildscope(JINT,me,i,localstack,_ops){
-    var data = 0
-    var index = 1
-    var row = localstack.length-1
-    var row_lhs = 0
-    var row_rhs = 1
+function buildscope(JINT,me,i,localstack,ops){
     var k = i+1
-    var ops = _ops.split('')
-    JINT[ops[0]](me,i,localstack)
-    me[k]=''
+    var hasOpenScope = {
+        '[':'6B189E262D7D28EF1FBF946FDFF08716',
+        '(':'152370721853AF95444F2F05AB29D4CC',
+        '{':-1,
+    }
     var K = peekNext(me,++k,ops)
-    var rhs = peekSymbol(me,k,3)
-    localstack[row][row_rhs] += ops[0]+rhs[0][data]+ops[1]
     while(k<K){
         if(JINT[me[k]]){
             localstack = JINT[me[k]](me,k,localstack)
         }
         k++
     }
-    JINT[ops[1]](me,i,localstack)
-    me[rhs[0][index]] = ''
-    me[k]=localstack[row].join('')
     return localstack
 }
 var OPS = {
@@ -402,6 +394,9 @@ var JSoperator = {
             var row_lhs = 0
             var row_rhs = 1
             var w = lhs[0][data]
+            if(this['6B189E262D7D28EF1FBF946FDFF08716'].length==1){
+                w
+            }
             if(localstack[row][row_lhs] == ''){
                 localstack[row][row_lhs] += w
             } else {
@@ -409,106 +404,124 @@ var JSoperator = {
             }
         } else {
             if(rhs[0][data].match(/\{/)){
-                localstack = buildscope(this,me,i,localstack,'{}')
+                localstack = this['{'](me,i,localstack)
+                rhs = peekSymbol(me,i+1,3)
             } else
             if(rhs[0][data].match(/\(/)){
-                localstack = buildscope(this,me,i,localstack,'()')
+                localstack = this['('](me,i,localstack)
+                rhs = peekSymbol(me,i+1,3)
             } else
             if(rhs[0][data].match(/\[/)){
-                localstack = buildscope(this,me,i,localstack,'[]')
+                localstack = this['['](me,i,localstack)
+                rhs = peekSymbol(me,i+1,3)
+            }
+            var row = localstack.length-1
+            var row_lhs = 0
+            var row_rhs = 1
+            var w = lhs[0][data]
+            var v = rhs[0][data]
+            if(localstack[row][row_lhs] == ''){
+                localstack[row][row_lhs] += w
+                if(!rhs[1] || (rhs[1] && rhs[1][data]!=OPS.hasa)){
+                    localstack[row][row_rhs] += v
+                }
             } else {
-                var row = localstack.length-1
-                var row_lhs = 0
-                var row_rhs = 1
-                var w = lhs[0][data]
-                var v = rhs[0][data]
-                if(localstack[row][row_lhs] == ''){
-                    localstack[row][row_lhs] += w
-                    if(!rhs[1] || (rhs[1] && rhs[1][data]!=OPS.hasa)){
-                        localstack[row][row_rhs] += v
-                    }
-                } else {
-                    localstack.push([w,v])
-                }
-                if(lhs[2] && lhs[1] && lhs[1][data] == OPS.isa){
-                    localstack.push([lhs[2][data],w])
-                    me[i] = ''
-                    me[rhs[0][index]] = ''
-                } else {
-                    me[i] = '='
-                }
+                localstack.push([w,v])
+            }
+            if(lhs[2] && lhs[1] && lhs[1][data] == OPS.isa){
+                localstack.push([lhs[2][data],w])
+                me[i] = ''
+                me[rhs[0][index]] = ''
+            } else
+            if(this['6B189E262D7D28EF1FBF946FDFF08716'].length==1&&rhs[1][data]==']'){
+                me[i] = ''
+                me[lhs[0][index]] = ''
+                me[rhs[0][index]] = '['+lhs[1][data]+']'
+                me[rhs[1][index]] = ''
+                me[lhs[1][index]] = ''
+                me[lhs[2][index]] = ''
+                this['6B189E262D7D28EF1FBF946FDFF08716'].pop()
+            } else {
+                me[i] = '='
             }
         }
     
         return localstack
         },
     '=>':function(me,i,localstack){
+        var HASACompiledScope = false
         var data = 0
         var index = 1
         var lhs = peekSymbol(me,i-1,3,'rev')
         var rhs = peekSymbol(me,i+1,3)
         if(rhs[0][data].match(/\{/)){
-            localstack = buildscope(this,me,i,localstack,'{}')
+            localstack = this['{'](me,i,localstack)
+            rhs = peekSymbol(me,i+1,3)
         } else
         if(rhs[0][data].match(/\(/)){
-            localstack = buildscope(this,me,i,localstack,'()')
+            localstack = this['('](me,i,localstack)
+            rhs = peekSymbol(me,i+1,3)
         } else
         if(rhs[0][data].match(/\[/)){
-            var row = localstack.length-1
-            var row_lhs = 0
-            var row_rhs = 1
-            var w = lhs[0][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')
-            if(localstack[row][row_lhs]==''){
-                localstack[row][row_lhs] = w
-            }
-            me[lhs[0][index]] = ''
-            me[i] = ''
-            localstack = buildscope(this,me,i,localstack,'[]')
+            localstack = this['['](me,i,localstack)
+            rhs = peekSymbol(me,i+1,3)
+            HASACompiledScope = true
+        }
+        var row = localstack.length-1
+        var row_lhs = 0
+        var row_rhs = 1
+        var w = lhs[0][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')
+        var v = ''
+        if(HASACompiledScope && !this["6B189E262D7D28EF1FBF946FDFF08716"].length){
+            v = rhs[0][data]
         } else {
-            var row = localstack.length-1
-            var row_lhs = 0
-            var row_rhs = 1
-            var w = lhs[0][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')
             var lbrack = '["'
             var rbrack = '"]'
             if(this["6B189E262D7D28EF1FBF946FDFF08716"].length){
                 lbrack = lbrack.replace(/\"/,'')
                 rbrack = rbrack.replace(/\"/,'')
             }
-            var v = lbrack+rhs[0][data].replace(/\W+/gm,'')+rbrack
-            me[i] = ''
-            me[lhs[0][index]] = ''
-            var u = w + v
+            v = lbrack+rhs[0][data].replace(/\W+/gm,'')+rbrack
+        }
+        me[i] = ''
+        me[lhs[0][index]] = ''
+        var u = w + v
+        if(HASACompiledScope && !this["6B189E262D7D28EF1FBF946FDFF08716"].length){
+            if(localstack[row][row_rhs] == ''){
+                localstack[row][row_rhs] += u
+            } else {
+                localstack.push(['',u])
+            }
+        } else {
             if(localstack[row][row_rhs] == ''){
                 localstack[row][row_rhs] += u
             } else {
                 localstack[row][row_rhs] += v
             }
-            if(
-            (lhs[2] && lhs[1] && lhs[1][data] && lhs[1][data]==OPS.isa) &&
-            (!rhs[1] || (rhs[1] && rhs[1][data] && rhs[1][data]!=OPS.hasa && rhs[1][data]!=OPS.isa))
-            ){
-                me[lhs[1][index]] = ''
-                me[rhs[0][index]] = ''
-            } else
-            if(
-            (lhs[2] && lhs[1] && lhs[1][data] && lhs[1][data]==OPS.isa) &&
-            (rhs[1] && rhs[1][data] && rhs[1][data]==OPS.isa)
-            ){
-                localstack.push([u,rhs[2][data]])
-                me[lhs[1][index]] = ''
-                me[rhs[0][index]] = ''
-                me[rhs[1][index]] = ''
-                var next = peekSymbol(me,rhs[2][index]+1,2)
-                if(!next[0] || (next[0] && next[0][data]!=OPS.hasa && next[0][data]!=OPS.isa)){
-                    me[rhs[2][index]] = ''
-                    localstack.push([rhs[2][data],'__local__'])
-                }
-            } else {
-                me[rhs[0][index]] = u
-            }
         }
-        //this["B2FAE65A017B97031EFB1C6DB2AE3658"]("9ACC23D8765224A84121BC737E6C1836", i) // ffast //
+        if(
+        (lhs[2] && lhs[1] && lhs[1][data] && lhs[1][data]==OPS.isa) &&
+        (!rhs[1] || (rhs[1] && rhs[1][data] && rhs[1][data]!=OPS.hasa && rhs[1][data]!=OPS.isa))
+        ){
+            me[lhs[1][index]] = ''
+            me[rhs[0][index]] = ''
+        } else
+        if(
+        (lhs[2] && lhs[1] && lhs[1][data] && lhs[1][data]==OPS.isa) &&
+        (rhs[1] && rhs[1][data] && rhs[1][data]==OPS.isa)
+        ){
+            localstack.push([u,rhs[2][data]])
+            me[lhs[1][index]] = ''
+            me[rhs[0][index]] = ''
+            me[rhs[1][index]] = ''
+            var next = peekSymbol(me,rhs[2][index]+1,2)
+            if(!next[0] || (next[0] && next[0][data]!=OPS.hasa && next[0][data]!=OPS.isa)){
+                me[rhs[2][index]] = ''
+                localstack.push([rhs[2][data],'__local__'])
+            }
+        } else {
+            me[rhs[0][index]] = u
+        }
         return localstack
             
         },
@@ -518,34 +531,50 @@ var JSoperator = {
         var lhs = peekSymbol(me,i-1,3,'rev')
         var rhs = peekSymbol(me,i+1,3)
         if(
-        (rhs[1][data]==']') &&
-        (rhs[2][data]==OPS.isa)
+        ((rhs[2][data]==']'))
         ){
             var row = localstack.length-1
             var row_lhs = 0
             var row_rhs = 1
-            var w = '['+rhs[0][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')+']'
-            me[i] = ''
+            var w = '['+rhs[1][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')+']'
             me[rhs[0][index]] = ''
             me[rhs[1][index]] = w
+            me[rhs[2][index]] = ''
         } else {
             this["B2FAE65A017B97031EFB1C6DB2AE3658"]("6B189E262D7D28EF1FBF946FDFF08716", i) // lbrack //
+            localstack = buildscope(this,me,i,localstack,'[]')
         }
         return localstack
         },
     ']':function(me,i,localstack){
-        //this["B2FAE65A017B97031EFB1C6DB2AE3658"]("B89B9AC07070CF76C97B285EC04D982C", i) // rbrack //
         if(this["6B189E262D7D28EF1FBF946FDFF08716"].length){
             this["6B189E262D7D28EF1FBF946FDFF08716"].pop()
         }
         return localstack
         },
     '(':function(me,i,localstack){
-        this["B2FAE65A017B97031EFB1C6DB2AE3658"]("152370721853AF95444F2F05AB29D4CC", i) // lparen //
+        var data = 0
+        var index = 1
+        var lhs = peekSymbol(me,i-1,3,'rev')
+        var rhs = peekSymbol(me,i+1,3)
+        if((rhs[1][data]==')')){
+            var row = localstack.length-1
+            var row_lhs = 0
+            var row_rhs = 1
+            var w = 'function ()'
+            me[rhs[0][index]] = ''
+            me[rhs[1][index]] = w
+        } else {
+            this["B2FAE65A017B97031EFB1C6DB2AE3658"]("152370721853AF95444F2F05AB29D4CC", i) // lparen //
+            /*
+            var I = peekNext(me,i,')')
+            var metoo = me.slice(i,I)
+            */
+            localstack = buildscope(this,me,i,localstack,'()')
+        }
         return localstack
         },
     ')':function(me,i,localstack){
-        //this["B2FAE65A017B97031EFB1C6DB2AE3658"]("EC9962F64DBBC61B566D4D3478A4902A", i) // rparen //
         if(this["152370721853AF95444F2F05AB29D4CC"].length){
             this["152370721853AF95444F2F05AB29D4CC"].pop()
         }
@@ -567,11 +596,6 @@ var JSoperator = {
     "165A1761634DB1E9BD304EA6F3FFCF2B":[], // md5(isa) //
     "B2FAE65A017B97031EFB1C6DB2AE3658":function(v,i){ // md5(addtostack) //
         this[v].unshift(i)
-        /*
-        while(this[v].length>9){
-            this[v].pop()
-        }
-        */
         },
 }
 var sourceLibrary = 
@@ -748,12 +772,55 @@ function g_switch() {
     }
     return result
 }
-
 function translatorTool() {
     g_switch(intf, "__main")(srcStackTrace.value)
 }
-
 var XFE = [
+/*
+"entity",
+"=>",
+"[",
+"gpi",
+"<=",
+"_",
+"=>",
+"godparent",
+"=>",
+"indent",
+"<=",
+"callstack",
+"=>",
+"[",
+"0",
+"]",
+"=>",
+"indent",
+"<=",
+"indent",
+"]",
+*/
+"[",
+"gpi",
+"<=",
+"_",
+"=>",
+"godparent",
+"=>",
+"indent",
+"<=",
+"callstack",
+"=>",
+"[",
+"0",
+"]",
+"=>",
+"indent",
+"<=",
+"indent",
+"]",
+"<=",
+"entity",
+/*
 "__",
 "<=",
 "entity",

@@ -1,4 +1,379 @@
-
+(indent<1) {
+    (!_ <= archive => [w]){
+        ( _ <= archive => [w] ) => { indent <= 0,s_name <= w,name <= 1 }
+        ( __ <= entity ) => [0] => push(['\nfunction _',w,'(',[],'){\n',[],'\n}\n_',w,'.prototype = new Object()\n',w,' = new _',w
+    }
+    callstack <= updatecallstack(_,callstack,indent)
+}
+//
+(indent<2) {
+    (!_){
+        _ => name <= 1
+        callstack <= updatecallstack(_,callstack,indent)
+        _ => level <= __ => [0] => length-1
+        _ => parent => { s_name <= callstack => [indent-1] => s_name,indent <= callstack => [indent-1] => indent,level <= callstack => [indent-1] => level }
+        __ => [gpi <= _ => godparent => indent <= callstack => [0] => indent] => [gpl <= _ => godparent => level <= callstack => [0] => level] => [gpc <= _ => godparent => codebody <= 5] => push([minor_tab+'this["',w,'"] => (',[],'){\n',[],'\n'+minor_tab+'}\n'])
+    }
+    __ => [indent] => push([_ => parent => s_name <= callstack => [0] => s_name + '.',w,'(',[],')','\n'])
+} 
+//
+function buildscope(JINT,me,i,localstack,ops){
+    /*
+    var data = 0
+    var index = 1
+    var row = localstack.length-1
+    var row_lhs = 0
+    var row_rhs = 1
+    */
+    var k = i+1
+    var hasOpenScope = {
+        '[':'6B189E262D7D28EF1FBF946FDFF08716',
+        '(':'152370721853AF95444F2F05AB29D4CC',
+        '{':-1,
+    }
+    //me[k]=''
+    var K = peekNext(me,++k,ops)
+    //var rhs = peekSymbol(me,k,3)
+    //JINT[ops[0]](me,i,localstack)
+    //localstack[row][row_rhs] += ops[0]+rhs[0][data]+ops[1]
+    while(k<K){
+        if(JINT[me[k]]){
+            localstack = JINT[me[k]](me,k,localstack)
+        }
+        k++
+    }
+    //JINT[ops[1]](me,i,localstack)
+    //me[rhs[0][index]] = ''
+    /*
+    if(JINT[hasOpenScope[ops[0]]].length){
+        me[k]=localstack[row][row_rhs]
+    } else {
+        me[k]=localstack[row].join('')
+    }
+    me[rhs[2][index]] = ops[0]+rhs[0][data]+ops[1]
+    */
+    return localstack
+}
+var JSoperator = {
+    '<=':function(me,i,localstack){
+        var data = 0
+        var index = 1
+        var lhs = peekSymbol(me,i-1,3,'rev')
+        var rhs = peekSymbol(me,i+1,3)
+        if(rhs[1] && rhs[1][data]==OPS.hasa){
+            var row = localstack.length-1
+            var row_lhs = 0
+            var row_rhs = 1
+            var w = lhs[0][data]
+            if(this['6B189E262D7D28EF1FBF946FDFF08716'].length==1){
+                //w = w.replace(/[\[\]]+/gm,'')
+                w //= '[' + w + ']'
+            }
+            if(localstack[row][row_lhs] == ''){
+                localstack[row][row_lhs] += w
+            } else {
+                localstack.push([w,''])
+            }
+        } else {
+            if(rhs[0][data].match(/\{/)){
+                localstack = this['{'](me,i,localstack)
+                rhs = peekSymbol(me,i+1,3)
+            } else
+            if(rhs[0][data].match(/\(/)){
+                localstack = this['('](me,i,localstack)
+                rhs = peekSymbol(me,i+1,3)
+            } else
+            if(rhs[0][data].match(/\[/)){
+                /*
+                if(rhs[2][data]==']'){
+                    var row = localstack.length-1
+                    var row_lhs = 0
+                    var row_rhs = 1
+                    var w = '['+rhs[1][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')+']'
+                    me[i] = ''
+                    me[rhs[0][index]] = ''
+                    me[rhs[1][index]] = w
+                    me[rhs[2][index]] = ''
+                
+                } else {
+                */
+                    localstack = this['['](me,i,localstack)
+                    rhs = peekSymbol(me,i+1,3)
+                //}
+            }/* else {*/
+                var row = localstack.length-1
+                var row_lhs = 0
+                var row_rhs = 1
+                var w = lhs[0][data]
+                var v = rhs[0][data]
+                if(localstack[row][row_lhs] == ''){
+                    localstack[row][row_lhs] += w
+                    if(!rhs[1] || (rhs[1] && rhs[1][data]!=OPS.hasa)){
+                        localstack[row][row_rhs] += v
+                    }
+                } else {
+                    localstack.push([w,v])
+                }
+                if(lhs[2] && lhs[1] && lhs[1][data] == OPS.isa){
+                    localstack.push([lhs[2][data],w])
+                    me[i] = ''
+                    me[rhs[0][index]] = ''
+                } else
+                if(this['6B189E262D7D28EF1FBF946FDFF08716'].length==1&&rhs[1][data]==']'){
+                    me[i] = ''
+                    me[lhs[0][index]] = ''
+                    me[rhs[0][index]] = '['+lhs[1][data]+']'
+                    me[rhs[1][index]] = ''
+                    me[lhs[1][index]] = ''
+                    me[lhs[2][index]] = ''
+                    this['6B189E262D7D28EF1FBF946FDFF08716'].pop()
+                } else {
+                    me[i] = '='
+                }
+            //}
+        }
+    
+        return localstack
+        },
+    '=>':function(me,i,localstack){
+        var HASACompiledScope = false
+        var data = 0
+        var index = 1
+        var lhs = peekSymbol(me,i-1,3,'rev')
+        var rhs = peekSymbol(me,i+1,3)
+        if(rhs[0][data].match(/\{/)){
+            localstack = this['{'](me,i,localstack)
+            rhs = peekSymbol(me,i+1,3)
+        } else
+        if(rhs[0][data].match(/\(/)){
+            localstack = this['('](me,i,localstack)
+            rhs = peekSymbol(me,i+1,3)
+        } else
+        if(rhs[0][data].match(/\[/)){
+            /*
+            if(rhs[2][data]==']'){
+                var row = localstack.length-1
+                var row_lhs = 0
+                var row_rhs = 1
+                var w = '['+rhs[1][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')+']'
+                me[i] = ''
+                me[rhs[0][index]] = ''
+                me[rhs[1][index]] = w
+                me[rhs[2][index]] = ''
+            
+            } else {
+            */
+                localstack = this['['](me,i,localstack)
+                rhs = peekSymbol(me,i+1,3)
+                HASACompiledScope = true
+            //}
+        }/* else {*/
+            var row = localstack.length-1
+            var row_lhs = 0
+            var row_rhs = 1
+            var w = lhs[0][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')
+            var v = ''
+            if(HASACompiledScope && !this["6B189E262D7D28EF1FBF946FDFF08716"].length){
+                v = rhs[0][data]
+            } else {
+                var lbrack = '["'
+                var rbrack = '"]'
+                if(this["6B189E262D7D28EF1FBF946FDFF08716"].length){
+                    lbrack = lbrack.replace(/\"/,'')
+                    rbrack = rbrack.replace(/\"/,'')
+                }
+                v = lbrack+rhs[0][data].replace(/\W+/gm,'')+rbrack
+            }
+            me[i] = ''
+            me[lhs[0][index]] = ''
+            var u = w + v
+            if(HASACompiledScope && !this["6B189E262D7D28EF1FBF946FDFF08716"].length){
+                if(localstack[row][row_rhs] == ''){
+                    localstack[row][row_rhs] += u
+                } else {
+                    localstack.push(['',u])
+                }
+            } else {
+                if(localstack[row][row_rhs] == ''){
+                    localstack[row][row_rhs] += u
+                } else {
+                    localstack[row][row_rhs] += v
+                }
+            }
+            if(
+            (lhs[2] && lhs[1] && lhs[1][data] && lhs[1][data]==OPS.isa) &&
+            (!rhs[1] || (rhs[1] && rhs[1][data] && rhs[1][data]!=OPS.hasa && rhs[1][data]!=OPS.isa))
+            ){
+                me[lhs[1][index]] = ''
+                me[rhs[0][index]] = ''
+            } else
+            if(
+            (lhs[2] && lhs[1] && lhs[1][data] && lhs[1][data]==OPS.isa) &&
+            (rhs[1] && rhs[1][data] && rhs[1][data]==OPS.isa)
+            ){
+                localstack.push([u,rhs[2][data]])
+                me[lhs[1][index]] = ''
+                me[rhs[0][index]] = ''
+                me[rhs[1][index]] = ''
+                var next = peekSymbol(me,rhs[2][index]+1,2)
+                if(!next[0] || (next[0] && next[0][data]!=OPS.hasa && next[0][data]!=OPS.isa)){
+                    me[rhs[2][index]] = ''
+                    localstack.push([rhs[2][data],'__local__'])
+                }
+            } else {
+                me[rhs[0][index]] = u
+            }
+        //}
+        //this["B2FAE65A017B97031EFB1C6DB2AE3658"]("9ACC23D8765224A84121BC737E6C1836", i) // ffast //
+        return localstack
+            
+        },
+    '[':function(me,i,localstack){
+        var data = 0
+        var index = 1
+        var lhs = peekSymbol(me,i-1,3,'rev')
+        var rhs = peekSymbol(me,i+1,3)
+        if(
+        ((rhs[2][data]==']')/* && (rhs[2][data]==OPS.isa)*/)
+        ){
+            var row = localstack.length-1
+            var row_lhs = 0
+            var row_rhs = 1
+            var w = '['+rhs[1][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')+']'
+            me[rhs[0][index]] = ''
+            me[rhs[1][index]] = w
+            me[rhs[2][index]] = ''
+        } else {
+            this["B2FAE65A017B97031EFB1C6DB2AE3658"]("6B189E262D7D28EF1FBF946FDFF08716", i) // lbrack //
+            localstack = buildscope(this,me,i,localstack,'[]')
+        }
+        /* else
+        if(rhs[1][data]==OPS.isa){
+            this["B2FAE65A017B97031EFB1C6DB2AE3658"]("6B189E262D7D28EF1FBF946FDFF08716", i) // lbrack //
+        } else {
+            this["B2FAE65A017B97031EFB1C6DB2AE3658"]("6B189E262D7D28EF1FBF946FDFF08716", i) // lbrack //
+        }
+        */
+        return localstack
+        },
+    ']':function(me,i,localstack){
+        if(this["6B189E262D7D28EF1FBF946FDFF08716"].length){
+            this["6B189E262D7D28EF1FBF946FDFF08716"].pop()
+        }
+        return localstack
+        },
+    '(':function(me,i,localstack){
+        this["B2FAE65A017B97031EFB1C6DB2AE3658"]("152370721853AF95444F2F05AB29D4CC", i) // lparen //
+        return localstack
+        },
+    ')':function(me,i,localstack){
+        if(this["152370721853AF95444F2F05AB29D4CC"].length){
+            this["152370721853AF95444F2F05AB29D4CC"].pop()
+        }
+        return localstack
+        },
+        /*
+    ',':function(me,i,localstack){
+        this["B2FAE65A017B97031EFB1C6DB2AE3658"]("B6D00DC1BA038E5901CD6C06B2DAA192", i) // comma //
+        return localstack
+        },
+        */
+    "7714F8C839428D0E184EAF11464D3A6E":[['','']], // md5(operationstack) //
+    "6B189E262D7D28EF1FBF946FDFF08716":[], // md5(lbrack) //
+    "B89B9AC07070CF76C97B285EC04D982C":[], // md5(rbrack) //
+    "152370721853AF95444F2F05AB29D4CC":[], // md5(lparen) //
+    "EC9962F64DBBC61B566D4D3478A4902A":[], // md5(rparen) //
+    "B6D00DC1BA038E5901CD6C06B2DAA192":[], // md5(comma) //
+    "9ACC23D8765224A84121BC737E6C1836":[], // md5(ffast) //
+    "165A1761634DB1E9BD304EA6F3FFCF2B":[], // md5(isa) //
+    "B2FAE65A017B97031EFB1C6DB2AE3658":function(v,i){ // md5(addtostack) //
+        this[v].unshift(i)
+        },
+}
+//
+"B2FAE65A017B97031EFB1C6DB2AE3658":function(v,i){ // md5(addtostack) //
+        this[v].unshift(i)
+        /*
+        while(this[v].length>9){
+            this[v].pop()
+        }
+        */
+        },
+//
+'[':function(me,i,localstack){
+        var data = 0
+        var index = 1
+        var lhs = peekSymbol(me,i-1,3,'rev')
+        var rhs = peekSymbol(me,i+1,3)
+        if(
+        ((rhs[1][data]==']') && (rhs[2][data]==OPS.isa))
+        ){
+            var row = localstack.length-1
+            var row_lhs = 0
+            var row_rhs = 1
+            var w = '['+rhs[0][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')+']'
+            me[i] = ''
+            me[rhs[0][index]] = ''
+            me[rhs[1][index]] = w
+        } else
+        if(rhs[1][data]==OPS.isa){
+            /*
+            var row = localstack.length-1
+            var row_lhs = 0
+            var row_rhs = 1
+            var w = '['+rhs[0][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')+']'
+            me[i] = ''
+            me[rhs[0][index]] = w
+            */
+            this["B2FAE65A017B97031EFB1C6DB2AE3658"]("6B189E262D7D28EF1FBF946FDFF08716", i) // lbrack //
+            //localstack = buildscope(this,me,i,localstack,'[]')
+        
+        } else {
+            this["B2FAE65A017B97031EFB1C6DB2AE3658"]("6B189E262D7D28EF1FBF946FDFF08716", i) // lbrack //
+        }
+        return localstack
+        },
+//
+'[':function(me,i,localstack){
+        var data = 0
+        var index = 1
+        var lhs = peekSymbol(me,i-1,3,'rev')
+        var rhs = peekSymbol(me,i+1,3)
+        if(
+        ((rhs[1][data]==']') && (rhs[2][data]==OPS.isa))
+        ){
+            var row = localstack.length-1
+            var row_lhs = 0
+            var row_rhs = 1
+            var w = '['+rhs[0][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')+']'
+            me[i] = ''
+            me[rhs[0][index]] = ''
+            me[rhs[1][index]] = w
+        } else
+        if(rhs[1][data]==OPS.isa){
+            var row = localstack.length-1
+            var row_lhs = 0
+            var row_rhs = 1
+            var w = '['+rhs[0][data].replace(/[^\[\]\w+\d+\"\']+/gm,'')+']'
+            //var j = peekNext(me,i+1,'[]')
+            /*
+            if(localstack[row][row_rhs] == ''){
+                localstack[row][row_rhs] += w
+            } else {
+                localstack.push([w,''])
+            }
+            */
+            me[i] = ''
+            //me[j] = ''
+            me[rhs[0][index]] = w
+            this["B2FAE65A017B97031EFB1C6DB2AE3658"]("6B189E262D7D28EF1FBF946FDFF08716", i) // lbrack //
+        
+        } else {
+            this["B2FAE65A017B97031EFB1C6DB2AE3658"]("6B189E262D7D28EF1FBF946FDFF08716", i) // lbrack //
+        }
+        return localstack
+        },
+//
 function operatorNestedSQbrace(me,i){
     var stacktally = 0
     var lb = '['

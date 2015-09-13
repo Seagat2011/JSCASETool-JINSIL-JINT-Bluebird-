@@ -1,24 +1,24 @@
-// HASA
+// HASA //
 entity => gpi
 entity => godparent => indent
 // ISA
 __ <= entity
-// HASA + ISA
+// HASA + ISA //
 entity => godparent => indent <= indent
 __ <= entity => gpi
 __ <= entity => gpi <= gpi
 __ <= entity => godparent => indent <= indent
 entity => gpi <= gpi
-// brackets
+// brackets //
 [__] <= entity
-__ => [gpi] => [gpl] => [gpc] => unshift
-__ <= entity => [godparent] => [indent] <= indent
-__ <= entity => [gpi <= _ => godparent => indent <= callstack => [0] => indent <= indent]
-// parens
-__ <= (entity) => [godparent] => [indent] <= indent
-// nested-if-then-else
+__ => [gpi]
+[gpi <= _ => godparent => indent <= callstack => [0] => indent <= indent] <= entity
+entity => [gpi <= _ => godparent => indent <= callstack => [0] => indent <= indent]
+// parens //
+( __ <= entity ) => [godparent] => [indent] <= indent
+// nested .. //
 (last!=<=indent)
-// test #1
+// test #1 //
 (indent<1) {
     callstack <= updatecallstack( _ <= archive => w,callstack,indent)
 }
