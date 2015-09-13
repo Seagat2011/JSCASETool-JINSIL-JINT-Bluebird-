@@ -1,3 +1,71 @@
+var intf = {
+    'default': function() {
+        srcTranslated.value = 'Functionality not implemented.'
+    }, // intf 'default'
+    0: function() { // Procedural-Designer //
+        return srcStackTrace.value.split(/\n+/)
+    },
+    1: function() { // parameter-list //
+    },
+    2: function() { // code body //
+    },
+    3: function() { // compare //
+    },
+    4: function() { // assert //
+    },
+    5: function() { // iterate //
+    },
+    "__main": function() { // msg handler //
+        if (!intf.archive) {
+            intf.archive = {}
+        }
+        if (!intf.module) {
+            intf.module = []
+        }
+        if (intf.module[selBoxModules.selectedIndex]) {
+            refresh_module(selBoxModules.selectedIndex)
+            //srcSnapShot.value = intf.module[selBoxModules.selectedIndex]
+        } else {
+            //refresh_module(selBoxModules.selectedIndex)
+            var s = []
+            //intf.module = []
+            intf.archive = {}
+            var added = {}
+            var code_lhs = "<option>"
+            var code_rhs = "</option>"
+            var buffer = arguments[0].replace(/\s+/gm, '\n').split(/\n+/gm)
+            buffer.map(function(u) {
+                if (!added[u]) {
+                    added[u] = 1
+                    s.push(code_lhs + u + code_rhs)
+                    intf.archive[u] = s.length-1
+                    /*
+                    if (
+                    !intf.archive[u] || 
+                    ((u in intf.archive) && (intf.archive[u] != srcSnapShot.value))
+                    ) { // intf scope allows for blank entries //
+                        intf.module.push(srcSnapShot.value)
+                        intf.archive[u] = srcSnapShot.value
+                    }
+                    */
+                }
+                return u
+            })
+            selBoxModules.style.display = "none"
+            selBoxModules.innerHTML = s.join('')
+            selBoxModules.style.display = "block"
+            divLibrary.value = intf.module.join('%%')
+            refresh_module(selBoxModules.selectedIndex)
+            /*
+            selected.value = selBoxModules.selectedIndex
+            refresh_module(selBoxModules.selectedIndex)
+            */
+        }
+    },
+    "archive": {},
+    "module": [],
+} // intf {}
+//
 (indent<1) {
     (!_ <= archive => [w]){
         ( _ <= archive => [w] ) => { indent <= 0,s_name <= w,name <= 1 }
