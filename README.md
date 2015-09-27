@@ -64,7 +64,7 @@ HTML5 / CSS3 inline javascript editor (fast).  Supports inline javascript, stack
   indent => push(obj)
 ```  
  
-generated javasript ..
+#### GENERATED JAVASCRIPT ..
 
 ```javascript
   indent.push(obj) or indent["push"] (obj) 
@@ -76,7 +76,7 @@ generated javasript ..
   indent <= callParentObj(obj)
 ```
   
-generated javasript ..
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
   var indent = callParentObj (obj)
@@ -88,7 +88,7 @@ generated javasript ..
   indent <= archive => callParentObj(obj)
 ``` 
  
-generated javasript ..
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
   var indent = archive["callParentObj"] (obj)
@@ -100,7 +100,7 @@ generated javasript ..
   gpi <= archive => godparent => indent <= w
 ``` 
  
-generated javasript ..
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
   var archive = []
@@ -115,7 +115,7 @@ generated javasript ..
   gpi <= archive => godparent => indent
 ```  
  
-generated javasript ..
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
   var archive = []
@@ -132,7 +132,7 @@ generated javasript ..
   entity => [gpi] => [gpl] => push(obj)
 ```  
  
-generated javasript ..
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
   var archive = []
@@ -153,7 +153,7 @@ generated javasript ..
   entity => [gpi <= archive => godparent => indent] => [gpl <= archive => godparent => level] => push(obj)
 ```  
  
-generated javasript ..
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
   var archive = []
@@ -196,7 +196,7 @@ generated javasript ..
 }
 ```
  
-generated javasript ..
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
 if(indent<1){
@@ -278,7 +278,8 @@ Library
 Parse
  serializeFile
 ``` 
-generated javasript ..
+
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
 
@@ -345,7 +346,8 @@ a => {
   [0,1,3] <= 1,
 }
 ```
-generated javasript ..
+
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
 var a = function(){
@@ -365,7 +367,7 @@ a => {
 }
 ```
 
-generated javasript ..
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
 var a = function(){
@@ -385,7 +387,7 @@ a => {
 }
 ```
 
-generated javasript ..
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
 var a = function(){
@@ -408,7 +410,7 @@ a => {
 }
 ```
 
-generated javasript ..
+##### GENERATED JAVASCRIPT ..
 
 ```javascript
 var a = function(){
