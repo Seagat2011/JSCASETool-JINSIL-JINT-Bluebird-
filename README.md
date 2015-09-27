@@ -76,7 +76,7 @@ HTML5 / CSS3 inline javascript editor (fast).  Supports inline javascript, stack
   indent <= callParentObj(obj)
 ```
   
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
   var indent = callParentObj (obj)
@@ -88,7 +88,7 @@ HTML5 / CSS3 inline javascript editor (fast).  Supports inline javascript, stack
   indent <= archive => callParentObj(obj)
 ``` 
  
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
   var indent = archive["callParentObj"] (obj)
@@ -100,7 +100,7 @@ HTML5 / CSS3 inline javascript editor (fast).  Supports inline javascript, stack
   gpi <= archive => godparent => indent <= w
 ``` 
  
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
   var archive = []
@@ -115,7 +115,7 @@ HTML5 / CSS3 inline javascript editor (fast).  Supports inline javascript, stack
   gpi <= archive => godparent => indent
 ```  
  
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
   var archive = []
@@ -132,7 +132,7 @@ HTML5 / CSS3 inline javascript editor (fast).  Supports inline javascript, stack
   entity => [gpi] => [gpl] => push(obj)
 ```  
  
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
   var archive = []
@@ -153,7 +153,7 @@ HTML5 / CSS3 inline javascript editor (fast).  Supports inline javascript, stack
   entity => [gpi <= archive => godparent => indent] => [gpl <= archive => godparent => level] => push(obj)
 ```  
  
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
   var archive = []
@@ -196,7 +196,7 @@ HTML5 / CSS3 inline javascript editor (fast).  Supports inline javascript, stack
 }
 ```
  
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
 if(indent<1){
@@ -279,7 +279,7 @@ Parse
  serializeFile
 ``` 
 
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
 
@@ -347,7 +347,7 @@ a => {
 }
 ```
 
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
 var a = function(){
@@ -367,7 +367,7 @@ a => {
 }
 ```
 
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
 var a = function(){
@@ -387,7 +387,7 @@ a => {
 }
 ```
 
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
 var a = function(){
@@ -410,7 +410,7 @@ a => {
 }
 ```
 
-##### GENERATED JAVASCRIPT ..
+### GENERATED JAVASCRIPT 
 
 ```javascript
 var a = function(){
