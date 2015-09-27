@@ -26,7 +26,7 @@ HTML5/CSS3 inline javascript editor (fast)  Supports inline javascript, stacktra
 - Bluebird maps all vars and funcs into objs
 - Bluebird maps all objs into larger encapsulating objs
 - Bluebird exports all undefined, vars, literals, 
-    & immediates into parameter-lists (ie. arity)
+    & immediates into parameter-lists (ie. arity manifesting)
 - Bluebird resolves all macros inline
 - Bluebird resolves all vars inline
 - Bluebird: hasa always evaluates to true
