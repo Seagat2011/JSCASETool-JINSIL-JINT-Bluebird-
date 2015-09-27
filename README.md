@@ -334,3 +334,120 @@ Parse.split_local_phrase_obj()
 Library.Reload_local_vars()
 Parse.serializeFile()
 ```
+## CONDENSED OBJECT LOADING 
+
+Bluebird supports condensed object loading, as well as internal operator overloading 
+
+### EXAMPLE #1 (condensed object loading : ortho-map)
+
+```javascript
+a => {
+  [0,1,3] <= 1,
+}
+```
+### GENERATED JAVASCRIPT
+
+```javascript
+var a = function(){
+  var __tmp00 = []
+  [0,1,3].map(function(v){
+    __tmp00[v] = 1
+  }
+  return __tmp00
+}()
+```
+
+### EXAMPLE #2  (condensed object loading : ortho-map)
+
+```javascript
+a => {
+  [0,1,3] <= [2,6,4],
+}
+```
+
+### GENERATED JAVASCRIPT
+
+```javascript
+var a = function(){
+  var __tmp00 = []
+  [0,1,3].map(function(v){
+    __tmp00[v] = [2,6,4]
+  }
+  return __tmp00
+}()
+```
+
+### EXAMPLE #3  (condensed object loading : linear-map)
+
+```javascript
+a => {
+  [0 1 3] <= 1,
+}
+```
+
+### GENERATED JAVASCRIPT
+
+```javascript
+var a = function(){
+  var __tmp00 = []
+  var __tmp01 = [1]
+  [0,1,3].map(function(v,idx){
+    if (__tmp01[idx]) {
+      __tmp00[v] = __tmp01[idx]
+    }
+  }
+  return __tmp00
+}()
+```
+
+### EXAMPLE #4  (condensed object loading : linear-map)
+
+```javascript
+a => {
+  [0 1 3] <= [2 6 4],
+}
+```
+
+### GENERATED JAVASCRIPT
+
+```javascript
+var a = function(){
+  var __tmp00 = []
+  var __tmp01 = [2,6,4]
+  [0,1,3].map(function(v,idx){
+    if (__tmp01[idx]) {
+      __tmp00[v] = __tmp01[idx]
+    }
+  }
+  return __tmp00
+}()
+```
+## INTERNAL OPERATOR OVERLOADING
+
+### EXAMPLE #1
+
+```javascript
+a => {
+  [0 2 3] <= [2 6 4],
+}
+
+b => {
+  [2 5 8] <= [1 9 0],
+}
+
+console.log(a+b) // { 0:2, 2:7, 3:4, 5:9, 8:0 }
+```
+
+### EXAMPLE #2
+
+```javascript
+a => {
+  [0,2,3] <= [2 6 4],
+}
+
+b => {
+  [2,5,8] <= [1 9 0],
+}
+
+console.log(a+b) // { [0, 3] <= [2 6 4], [2] <= [2 6 4 1 9 0], [5, 8] <= [1 9 0],  }
+```
