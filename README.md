@@ -354,7 +354,7 @@ var a = function(){
   var __tmp00 = []
   [0,1,3].map(function(v){
     __tmp00[v] = 1
-  }
+  })
   return __tmp00
 }()
 ```
@@ -374,7 +374,7 @@ var a = function(){
   var __tmp00 = []
   [0,1,3].map(function(v){
     __tmp00[v] = [2,6,4]
-  }
+  })
   return __tmp00
 }()
 ```
@@ -397,7 +397,7 @@ var a = function(){
     if (__tmp01[idx]) {
       __tmp00[v] = __tmp01[idx]
     }
-  }
+  })
   return __tmp00
 }()
 ```
@@ -420,7 +420,7 @@ var a = function(){
     if (__tmp01[idx]) {
       __tmp00[v] = __tmp01[idx]
     }
-  }
+  })
   return __tmp00
 }()
 ```
