@@ -18,7 +18,7 @@ REFERENCES:
   JSCASETool / README
 
 DESCRIPTION: 
-  JINSIL / JINT Bluebird converts stacktraces,
+  JINSIL / JINT Bluebird convert stacktraces,
   inline macros, and vars to javascript
 
 INPUT:
@@ -195,12 +195,17 @@ var intf = {
 function refresh_module(u,force) {
     intf.module = divLibrary.value.split('%%')
     if ((selected.value != u) || force) {
+        var _str_ = []
+        var i = 0
+        while (editor.getLine(i)) {
+            _str_.push(editor.getLine(i++))
+        }
         if (selected.value < intf.module.length){
-            intf.module[selected.value] = srcSnapShot.value
+            intf.module[selected.value] = _str_.join('\n')
         } else {
-            intf.module.push(srcSnapShot.value)
-        }    
-        srcSnapShot.value = intf.module[u] || ''
+            intf.module.push(_str_.join('\n'))
+        }
+        editor.setValue(intf.module[u] || '')
         selected.value = u
         divLibrary.value = intf.module.join('%%')
     }
@@ -592,9 +597,6 @@ var JSoperator = {
 }
 var sourceLibrary = 
 [
-    function() { /* JavaScript */
-        return this[13]()
-    }, 
     function() { /* text shift+F11 */
         return text_shift_F11
     }, 
@@ -693,7 +695,7 @@ var sourceLibrary =
     }, 
 ]
 sourceLibrary['default'] = function() {
-    return this[13]()
+    return this[12]()
 }
 function bbtojs(a) {
     var bbglobals = 1
@@ -820,7 +822,7 @@ function generate_module() {
         return w
     })
     //cstart.push('\n/************* JBLAST *************/')
-    srcTranslated.value = cstart.join('\n')
+    result_editor.setValue(cstart.join('\n'))
 }
 function g_switch() {
     try {
