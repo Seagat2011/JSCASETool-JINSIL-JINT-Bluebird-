@@ -37,19 +37,20 @@ SCRIPT TYPE:
 function loader() { // function loader ()
     //srcSnapShot.value = ''
     //srcStackTrace.value = ''
-    srcTranslated.value = ''
+    srcTranslated.setLine('')
     return
 }
 function clear_window() { // clear_window ()
-    srcTranslated.value = ''
+    srcTranslated.setLine('')
     return
 }
 function MD5() { // generate_MD5 ()
-    srcTranslated.value = 
-    'stacktrace - ' + 
-    Math.md5(srcStackTrace.value) + 
-    '\nsnapshot - ' + 
-    Math.md5(srcSnapShot.value)
+    srcTranslated.setLine( 
+        'stacktrace - ' + 
+        Math.md5(srcStackTrace.value) + 
+        '\nsnapshot - ' + 
+        Math.md5(srcSnapShot.value)
+        )
     return
 }
 Array.prototype.Repack = function() 
@@ -143,7 +144,7 @@ Object.prototype.dup = function(v, j) {
 }
 var intf = {
     'default': function() {
-        srcTranslated.value = 'Functionality not implemented.'
+        srcTranslated.setLine('..Functionality not implemented')
     }, // intf 'default'
     0: function() { // Procedural-Designer //
         return srcStackTrace.value.split(/\n+/)
@@ -195,17 +196,13 @@ var intf = {
 function refresh_module(u,force) {
     intf.module = divLibrary.value.split('%%')
     if ((selected.value != u) || force) {
-        var _str_ = []
-        var i = 0
-        while (editor.getLine(i)) {
-            _str_.push(editor.getLine(i++))
-        }
+        var _str_ = srcCode.getLines()
         if (selected.value < intf.module.length){
             intf.module[selected.value] = _str_.join('\n')
         } else {
             intf.module.push(_str_.join('\n'))
         }
-        editor.setValue(intf.module[u] || '')
+        srcCode.setLine(intf.module[u] || '')
         selected.value = u
         divLibrary.value = intf.module.join('%%')
     }
@@ -822,7 +819,7 @@ function generate_module() {
         return w
     })
     //cstart.push('\n/************* JBLAST *************/')
-    result_editor.setValue(cstart.join('\n'))
+    srcTranslated.setLine(cstart.join('\n'))
 }
 function g_switch() {
     try {
