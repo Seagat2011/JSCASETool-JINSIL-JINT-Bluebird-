@@ -1,0 +1,32 @@
+
+.code-editor {
+
+}
+.code-window {
+    font-family:monospace;
+    outline:none;
+    width:95%;
+    height:400px;
+    overflow:auto;
+    padding-top:4px;
+    padding-left:52px;
+    position:absolute;
+    z-index:0;
+}
+.v-rows {
+    font-family:monospace;
+    text-align:right;
+    width:40px;
+    height:400px;
+    overflow:hidden;
+    padding-top:4px;
+    padding-right:8px;
+    border:1px solid gray;
+    font-size:10pt;
+    float:left;
+    background:#dedede;
+    color:#4e4e4e;
+}
+.code-container {
+    display:inline-block;
+}

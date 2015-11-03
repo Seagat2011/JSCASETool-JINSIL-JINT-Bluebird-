@@ -1,0 +1,2 @@
+TEST STRING
+    var this 0.99 "string" /* multiline comment */ // line comment

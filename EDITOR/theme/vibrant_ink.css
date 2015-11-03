@@ -1,0 +1,113 @@
+
+ace_gutter {
+  background: #1a1a1a;
+  color: #BEBEBE
+}
+
+ace_print-margin {
+  width: 1px;
+  background: #1a1a1a
+}
+
+ace_ {
+  background-color: #0F0F0F;
+  color: #FFFFFF
+}
+
+ace_cursor {
+  color: #FFFFFF
+}
+
+ace_marker-layer,
+ace_selection {
+  background: #6699CC
+}
+
+ace_ ace_multiselect  ace_selection ace_start {
+  box-shadow: 0 0 3px 0px #0F0F0F;
+}
+
+ace_step {
+  background: rgb(102, 82, 0)
+}
+
+ace_bracket {
+  margin: -1px 0 0 -1px;
+  border: 1px solid #404040
+}
+
+ace_active-line {
+  background: #333333
+}
+
+ace_gutter-active-line {
+  background-color: #333333
+}
+
+ace_selected-word {
+  border: 1px solid #6699CC
+}
+
+ace_invisible {
+  color: #404040
+}
+
+ace_keyword,
+ace_meta {
+  color: #FF6600
+}
+
+ace_character,
+ace_escape,
+ace_other {
+  color: #339999
+}
+
+ace_constant, 
+ace_numeric {
+  color: #99CC99
+}
+
+ace_invalid,
+ace_deprecated {
+  color: #CCFF33;
+  background-color: #000000
+}
+
+ace_fold {
+  background-color: #FFCC00;
+  border-color: #FFFFFF
+}
+
+ace_support, 
+ace_function,
+ace_variable {
+  color: #FFCC00
+}
+
+ace_variable, 
+ace_parameter {
+  font-style: italic
+}
+
+ace_string {
+  color: #66FF00
+}
+
+ace_regexp {
+  color: #44B4CC
+}
+
+ace_comment {
+  color: #9933CC
+}
+
+ace_attribute-name {
+  font-style: italic;
+  color: #99CC99
+}
+
+ace_indent-guide {
+  border-right:1px dotted rgb(220,220,250);
+  margin-right:-1px;
+}
