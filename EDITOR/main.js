@@ -887,7 +887,7 @@ function _editor(obj) {
 }
 _editor.prototype = {} 
 function __BLACK_SPADE_EDITOR__ () {
-    this.fromTextarea = function(_id_) {
+    this.fromTextArea = function(_id_) {
         var id = null
         var vrows = "__rows__"+instanceHANDLE
         var texteditor = "te"+instanceHANDLE

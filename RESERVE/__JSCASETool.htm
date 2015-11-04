@@ -3,12 +3,15 @@
 <title>JSCASE Tool (JINSIL / JINT Blue) 1.0.0.0</title>
 <meta http-equiv="Content-Type" content="application/html; charset=utf-8"/>
 <link rel='stylesheet' media='all' href='CSS/JSCASETool.css'>
-<link id="__theme__" rel="stylesheet" media="all" href="EDITOR/theme/chrome.css">
-<link id="__theme__" rel="stylesheet" media="all" href="EDITOR/main.css">
-<script id="__mode__" src="EDITOR/mode/javascript_highlight_rules.js"></script>
-<script src="EDITOR/main.js"></script>
 <script src='JAVASCRIPT/MD5.js'></script>
 <script src='JAVASCRIPT/JSCASETool.js'></script>
+<link rel="stylesheet" href="EDITOR/CSS/codemirror.css">
+<script src="EDITOR/JAVASCRIPT/codemirror.js"></script>
+<script src="EDITOR/JAVASCRIPT/matchbrackets.js"></script>
+<script src="EDITOR/JAVASCRIPT/continuecomment.js"></script>
+<script src="EDITOR/JAVASCRIPT/comment.js"></script>
+<script src="EDITOR/JAVASCRIPT/javascript.js"></script>
+<style type="text/css">.CodeMirror {border-top: 1px solid #c8c8c8; border-bottom: 1px solid #c8c8c8;}</style>
 <div id=cssMENU>
 <a href=# class=cssCANCEL>&times;</a>
 <div class=cssFRAME>
@@ -911,7 +914,7 @@ necessary.  Here is a sample; alter the names:
 </div>
 <br>
 
-<textarea id=txtarea_srcCode></textarea>
+<textarea class=cssCode id=srcSnapShot placeholder='Step 2: Enter inline code for module then press UPDATE UI TOOLS or BUILD MODULE'></textarea>
 
 <p>
 <input id=btnTranslate type=button value=' update ui tools ' onclick='translatorTool()'/>
@@ -961,7 +964,7 @@ build module conversion
 <option>  XML shift+F12 </option>
 </select>
 -->
-to 
+&nbsp;to&nbsp;
 <select id=selBoxToSource>
 <option>  text shift+F11 </option>
 <option>  Ada </option>
@@ -975,7 +978,7 @@ to
 <option>  Fortran </option>
 <option>  HTML F12 </option>
 <option>  Java </option>
-<option selected="selected">  JavaScript </option>
+<option  selected="selected">  JavaScript </option>
 <option>  Lisp </option>
 <option>  Lua </option>
 <option>  Matlab </option>
@@ -999,12 +1002,21 @@ to
 <br>
 <br> <input id=btnTranslate type=button value=' build module ' onclick='generate_module()'/>
 <p/>
-<textarea class=cssTranslated id=txtarea_srcTranslated placeholder='Author - Abdul H. Shabazz, Copyright (c) 2015 - All Rights Reserved'></textarea>
+<textarea class=cssTranslated id=srcTranslated placeholder='Author - Abdul H. Shabazz, Copyright (c) 2015 - All Rights Reserved'></textarea>
 <footer>
 <script>
-    srcCode = BLACK_SPADE_EDITOR.fromTextArea("txtarea_srcCode")
-        srcCode.setLine("// Step 2: Enter code for module then PRESS UPDATE UI TOOLS or BULD MODULE")
-    srcTranslated = BLACK_SPADE_EDITOR.fromTextArea("txtarea_srcTranslated")
+  var editor = CodeMirror.fromTextArea(document.getElementById("srcSnapShot"), {
+    lineNumbers: true,
+    matchBrackets: true,
+    continueComments: "Enter",
+    extraKeys: {"Ctrl-Q": "toggleComment"}
+  });
+  var result_editor = CodeMirror.fromTextArea(document.getElementById("srcTranslated"), {
+    lineNumbers: true,
+    matchBrackets: true,
+    continueComments: "Enter",
+    extraKeys: {"Ctrl-Q": "toggleComment"}
+  });
 </script>
 </footer>
 </body>
