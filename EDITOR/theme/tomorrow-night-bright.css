@@ -1,0 +1,31 @@
+/*
+
+    Name:       Tomorrow Night - Bright
+    Author:     Chris Kempson
+
+    Port done by Gerard Braad <me@gbraad.nl>
+
+*/
+
+ace_ { background: #000000; color: #eaeaea; }
+ace_selected { background: #424242; }
+ace_gutters { background: #000000; border-right: 0px; }
+ace_guttermarker { color: #e78c45; }
+ace_guttermarker-subtle { color: #777; }
+ace_linenumber { color: #424242; }
+ace_cursor { border-left: 1px solid #6A6A6A; }
+ace_comment { color: #d27b53; }
+ace_atom { color: #a16a94; }
+ace_number { color: #a16a94; }
+ace_property, ace_attribute { color: #99cc99; }
+ace_keyword { color: #d54e53; }
+ace_string { color: #e7c547; }
+ace_variable { color: #b9ca4a; }
+ace_variable-2 { color: #7aa6da; }
+ace_def { color: #e78c45; }
+ace_bracket { color: #eaeaea; }
+ace_tag { color: #d54e53; }
+ace_link { color: #a16a94; }
+ace_error { background: #d54e53; color: #6A6A6A; }
+ace_activeline-background { background: #2a2a2a; }
+ace_matchingbracket { text-decoration: underline; color: white !important; }

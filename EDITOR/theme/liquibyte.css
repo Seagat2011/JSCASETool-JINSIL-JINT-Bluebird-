@@ -1,0 +1,96 @@
+
+ace_ {
+	background-color: #000;
+	color: #fff;
+	line-height: 1.2em;
+	font-size: 1em;
+}
+ace_focused .cm-matchhighlight {
+	text-decoration: underline;
+	text-decoration-color: #0f0;
+	text-decoration-style: wavy;
+}
+ace_trailingspace {
+	text-decoration: line-through;
+	text-decoration-color: #f00;
+	text-decoration-style: dotted;
+}
+ace_tab {
+	text-decoration: line-through;
+	text-decoration-color: #404040;
+	text-decoration-style: dotted;
+}
+ace_gutters { background-color: #262626; border-right: 1px solid #505050; padding-right: 0.8em; }
+ace_gutter-elt div { font-size: 1.2em; }
+ace_guttermarker {  }
+ace_guttermarker-subtle {  }
+ace_linenumber { color: #606060; padding-left: 0; }
+ace_cursor { border-left: 1px solid #eee; }
+
+ace_comment     { color: #008000; }
+ace_def         { color: #ffaf40; font-weight: bold; }
+ace_keyword     { color: #c080ff; font-weight: bold; }
+ace_builtin     { color: #ffaf40; font-weight: bold; }
+ace_variable    { color: #5967ff; font-weight: bold; }
+ace_string      { color: #ff8000; }
+ace_number      { color: #0f0; font-weight: bold; }
+ace_atom        { color: #bf3030; font-weight: bold; }
+
+ace_variable-2  { color: #007f7f; font-weight: bold; }
+ace_variable-3  { color: #c080ff; font-weight: bold; }
+ace_property    { color: #999; font-weight: bold; }
+ace_operator    { color: #fff; }
+
+ace_meta        { color: #0f0; }
+ace_qualifier   { color: #fff700; font-weight: bold; }
+ace_bracket     { color: #cc7; }
+ace_tag         { color: #ff0; font-weight: bold; }
+ace_attribute   { color: #c080ff; font-weight: bold; }
+ace_error       { color: #f00; }
+
+ace_selected { background-color: rgba(255, 0, 0, 0.25); }
+
+ace_compilation { background-color: rgba(255, 255, 255, 0.12); }
+
+ace_activeline-background { background-color: rgba(0, 255, 0, 0.15); }
+
+/* Default styles for common addons */
+ace_matchingbracket { color: #0f0; font-weight: bold; }
+ace_nonmatchingbracket { color: #f00; font-weight: bold; }
+ace_matchingtag { background-color: rgba(150, 255, 0, .3); }
+/* Scrollbars */
+/* Simple */
+ace_simplescroll-horizontal div:hover, ace_simplescroll-vertical div:hover {
+	background-color: rgba(80, 80, 80, .7);
+}
+ace_simplescroll-horizontal div, ace_simplescroll-vertical div {
+	background-color: rgba(80, 80, 80, .3);
+	border: 1px solid #404040;
+	border-radius: 5px;
+}
+ace_simplescroll-vertical div {
+	border-top: 1px solid #404040;
+	border-bottom: 1px solid #404040;
+}
+ace_simplescroll-horizontal div {
+	border-left: 1px solid #404040;
+	border-right: 1px solid #404040;
+}
+ace_simplescroll-vertical {
+	background-color: #262626;
+}
+ace_simplescroll-horizontal {
+	background-color: #262626;
+	border-top: 1px solid #404040;
+}
+/* Overlay */
+ace_overlayscroll-horizontal div, ace_overlayscroll-vertical div {
+	background-color: #404040;
+	border-radius: 5px;
+}
+ace_overlayscroll-vertical div {
+	border: 1px solid #404040;
+}
+ace_overlayscroll-horizontal div {
+	border: 1px solid #404040;
+}

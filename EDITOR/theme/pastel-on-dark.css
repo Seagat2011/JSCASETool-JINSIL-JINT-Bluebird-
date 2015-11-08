@@ -1,0 +1,53 @@
+/**
+ * Pastel On Dark theme ported from ACE editor
+ * @license MIT
+ * @copyright AtomicPages LLC 2014
+ * @author Dennis Thompson, AtomicPages LLC
+ * @version 1.1
+ * @source https://github.com/atomicpages/codemirror-pastel-on-dark-theme
+ */
+
+ace_ {
+	background: #2c2827;
+	color: #8F938F;
+	line-height: 1.5;
+	font-size: 14px;
+}
+ace_selected { background: rgba(221,240,255,0.2); }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(221,240,255,0.2); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(221,240,255,0.2); }
+
+ace_gutter {
+	background: #34302f;
+	border-right: 0px;
+	padding: 0 3px;
+}
+ace_guttermarker { color: white; }
+ace_guttermarker-subtle { color: #8F938F; }
+ace_linenumber { color: #8F938F; }
+ace_cursor { border-left: 1px solid #A7A7A7; }
+ace_comment { color: #A6C6FF; }
+ace_atom { color: #DE8E30; }
+ace_number { color: #CCCCCC; }
+ace_property { color: #8F938F; }
+ace_attribute { color: #a6e22e; }
+ace_keyword { color: #AEB2F8; }
+ace_string { color: #66A968; }
+ace_variable { color: #AEB2F8; }
+ace_variable-2 { color: #BEBF55; }
+ace_variable-3 { color: #DE8E30; }
+ace_def { color: #757aD8; }
+ace_bracket { color: #f8f8f2; }
+ace_tag { color: #C1C144; }
+ace_link { color: #ae81ff; }
+ace_qualifier,ace_builtin { color: #C1C144; }
+ace_error {
+	background: #757aD8;
+	color: #f8f8f0;
+}
+ace_activeline-background { background: rgba(255, 255, 255, 0.031); }
+ace_matchingbracket {
+	border: 1px solid rgba(255,255,255,0.25);
+	color: #8F938F !important;
+	margin: -1px -1px 0 -1px;
+}

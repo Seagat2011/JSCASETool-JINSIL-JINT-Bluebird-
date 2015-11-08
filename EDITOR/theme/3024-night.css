@@ -1,0 +1,39 @@
+/*
+
+    Name:       3024 night
+    Author:     Jan T. Sott (http://github.com/idleberg)
+
+    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-codemirror)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+
+ace_ { background: #090300; color: #d6d5d4; }
+ace_selected { background: #3a3432; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(58, 52, 50, .99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(58, 52, 50, .99); }
+ace_gutter { background: #090300; border-right: 0px; }
+ace_guttermarker { color: #db2d20; }
+ace_guttermarker-subtle { color: #5c5855; }
+ace_linenumber { color: #5c5855; }
+
+ace_cursor { border-left: 1px solid #807d7c; }
+
+ace_comment { color: #cdab53; }
+ace_atom { color: #a16a94; }
+ace_number { color: #a16a94; }
+
+ace_property, ace_attribute { color: #01a252; }
+ace_keyword { color: #db2d20; }
+ace_string { color: #fded02; }
+
+ace_variable { color: #01a252; }
+ace_variable-2 { color: #01a0e4; }
+ace_def { color: #e8bbd0; }
+ace_bracket { color: #d6d5d4; }
+ace_tag { color: #db2d20; }
+ace_link { color: #a16a94; }
+ace_error { background: #db2d20; color: #807d7c; }
+
+ace_activeline-background { background: #2F2F2F; }
+ace_matchingbracket { text-decoration: underline; color: white !important; }

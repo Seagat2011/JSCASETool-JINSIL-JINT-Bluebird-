@@ -1,0 +1,163 @@
+/*
+Solarized theme for code-mirror
+http://ethanschoonover.com/solarized
+*/
+
+/*
+Solarized color pallet
+http://ethanschoonover.com/solarized/img/solarized-palette.png
+*/
+
+ace_solarized_base03 { color: #002b36; }
+ace_solarized_base02 { color: #073642; }
+ace_solarized_base01 { color: #586e75; }
+ace_solarized_base00 { color: #657b83; }
+ace_solarized_base0 { color: #839496; }
+ace_solarized_base1 { color: #93a1a1; }
+ace_solarized_base2 { color: #eee8d5; }
+ace_solarized_base3  { color: #fdf6e3; }
+ace_solarized_solar-yellow  { color: #b58900; }
+ace_solarized_solar-orange  { color: #cb4b16; }
+ace_solarized_solar-red { color: #dc322f; }
+ace_solarized_solar-magenta { color: #d33682; }
+ace_solarized_solar-violet  { color: #6c71c4; }
+ace_solarized_solar-blue { color: #268bd2; }
+ace_solarized_solar-cyan { color: #2aa198; }
+ace_solarized_solar-green { color: #859900; }
+
+/* Color scheme for code-mirror */
+
+ace_solarized {
+  line-height: 1.45em;
+  color-profile: sRGB;
+  rendering-intent: auto;
+}
+ace_s-dark {
+  color: #839496;
+  background-color:  #002b36;
+  text-shadow: #002b36 0 1px;
+}
+ace_s-light {
+  background-color: #fdf6e3;
+  color: #657b83;
+  text-shadow: #eee8d5 0 1px;
+}
+
+ace_widget {
+  text-shadow: none;
+}
+
+ace_header { color: #586e75; }
+ace_quote { color: #93a1a1; }
+
+ace_keyword { color: #cb4b16; }
+ace_atom { color: #d33682; }
+ace_number { color: #d33682; }
+ace_def { color: #2aa198; }
+
+ace_variable { color: #839496; }
+ace_variable-2 { color: #b58900; }
+ace_variable-3 { color: #6c71c4; }
+
+ace_property { color: #2aa198; }
+ace_operator { color: #6c71c4; }
+
+ace_comment { color: #586e75; font-style:italic; }
+
+ace_string { color: #859900; }
+ace_string-2 { color: #b58900; }
+
+ace_meta { color: #859900; }
+ace_qualifier { color: #b58900; }
+ace_builtin { color: #d33682; }
+ace_bracket { color: #cb4b16; }
+ace_matchingbracket { color: #859900; }
+ace_nonmatchingbracket { color: #dc322f; }
+ace_tag { color: #93a1a1; }
+ace_attribute { color: #2aa198; }
+ace_hr {
+  color: transparent;
+  border-top: 1px solid #586e75;
+  display: block;
+}
+ace_link { color: #93a1a1; cursor: pointer; }
+ace_special { color: #6c71c4; }
+ace_em {
+  color: #999;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+ace_strong { color: #eee; }
+ace_error,
+ace_invalidchar {
+  color: #586e75;
+  border-bottom: 1px dotted #dc322f;
+}
+
+ace_s-dark divace_selected { background: #073642; }
+ace_s-dark.CodeMirror ::selection { background: rgba(7, 54, 66, 0.99); }
+ace_s-dark ace_line::-moz-selection, ace_dark ace_line > div::-moz-selection, ace_dark ace_line > div > div::-moz-selection { background: rgba(7, 54, 66, 0.99); }
+
+ace_s-light divace_selected { background: #eee8d5; }
+ace_s-light ace_line::selection, ace_light ace_line > div::selection, ace_light ace_line > div > div::selection { background: #eee8d5; }
+ace_s-light ace_line::-moz-selection, ace_ligh ace_line > div::-moz-selection, ace_ligh ace_line > div > div::-moz-selection { background: #eee8d5; }
+
+/* Editor styling */
+
+
+
+/* Little shadow on the view-port of the buffer view */
+ace_solarized2 {
+  -moz-box-shadow: inset 7px 0 12px -6px #000;
+  -webkit-box-shadow: inset 7px 0 12px -6px #000;
+  box-shadow: inset 7px 0 12px -6px #000;
+}
+
+/* Gutter border and some shadow from it  */
+ace_gutter {
+  border-right: 1px solid;
+}
+
+/* Gutter colors and line number styling based of color scheme (dark / light) */
+
+/* Dark */
+ace_s-dark ace_gutter {
+  background-color:  #002b36;
+  border-color: #00232c;
+}
+
+ace_s-dark ace_linenumber {
+  text-shadow: #021014 0 -1px;
+}
+
+/* Light */
+ace_s-light ace_gutter {
+  background-color: #fdf6e3;
+  border-color: #eee8d5;
+}
+
+/* Common */
+ace_linenumber {
+  color: #586e75;
+  padding: 0 5px;
+}
+ace_guttermarker-subtle { color: #586e75; }
+ace_s-dark ace_guttermarker { color: #ddd; }
+ace_s-light ace_guttermarker { color: #cb4b16; }
+
+ace_gutter ace_gutter-text {
+  color: #586e75;
+}
+
+ace_cursor { border-left: 1px solid #819090; }
+
+/*
+Active line. Negative margin compensates left padding of the text in the
+view-port
+*/
+ace_s-dark ace_activeline-background {
+  background: rgba(255, 255, 255, 0.10);
+}
+ace_s-light ace_activeline-background {
+  background: rgba(0, 0, 0, 0.10);
+}

@@ -1,0 +1,43 @@
+/*
+http://lesscss.org/ dark theme
+Ported to CodeMirror by Peter Kroon
+*/
+ace_lesser-dark {
+  line-height: 1.3em;
+}
+ace_ { background: #262626; color: #EBEFE7; text-shadow: 0 -1px 1px #262626; }
+ace_selected { background: #45443B; } /* 33322B*/
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(69, 68, 59, .99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(69, 68, 59, .99); }
+ace_cursor { border-left: 1px solid white; }
+ace_pre { padding: 0 8px; }/*editable code holder*/
+ace_matchingbracket { color: #7EFC7E; }/*65FC65*/
+ace_gutter { background: #262626; border-right:1px solid #aaa; }
+ace_guttermarker { color: #599eff; }
+ace_guttermarker-subtle { color: #777; }
+ace_linenumber { color: #777; }
+ace_header { color: #a0a; }
+ace_quote { color: #090; }
+ace_keyword { color: #599eff; }
+ace_atom { color: #C2B470; }
+ace_number { color: #B35E4D; }
+ace_def { color: white; }
+ace_variable { color:#D9BF8C; }
+ace_variable-2 { color: #669199; }
+ace_variable-3 { color: white; }
+ace_property { color: #92A75C; }
+ace_operator { color: #92A75C; }
+ace_comment { color: #666; }
+ace_string { color: #BCD279; }
+ace_string-2 { color: #f50; }
+ace_meta { color: #738C73; }
+ace_qualifier { color: #555; }
+ace_builtin { color: #ff9e59; }
+ace_bracket { color: #EBEFE7; }
+ace_tag { color: #669199; }
+ace_attribute { color: #00c; }
+ace_hr { color: #999; }
+ace_link { color: #00c; }
+ace_error { color: #9d1e15; }
+ace_activeline-background { background: #3C3A3A; }
+ace_matchingbracket { outline:1px solid grey; color:white !important; }

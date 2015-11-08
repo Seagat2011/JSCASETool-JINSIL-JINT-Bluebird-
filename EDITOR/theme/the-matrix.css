@@ -1,0 +1,29 @@
+
+ace_ { background: #000000; color: #00FF00; }
+ace_selected { background: #2D2D2D; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(45, 45, 45, 0.99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(45, 45, 45, 0.99); }
+ace_gutter { background: #060; border-right: 2px solid #00FF00; }
+ace_guttermarker { color: #0f0; }
+ace_guttermarker-subtle { color: white; }
+ace_linenumber { color: #FFFFFF; }
+ace_cursor { border-left: 1px solid #00FF00; }
+ace_keyword { color: #008803; font-weight: bold; }
+ace_atom { color: #3FF; }
+ace_number { color: #FFB94F; }
+ace_def { color: #99C; }
+ace_variable { color: #F6C; }
+ace_variable-2 { color: #C6F; }
+ace_variable-3 { color: #96F; }
+ace_property { color: #62FFA0; }
+ace_operator { color: #999; }
+ace_comment { color: #CCCCCC; }
+ace_string { color: #39C; }
+ace_meta { color: #C9F; }
+ace_qualifier { color: #FFF700; }
+ace_builtin { color: #30a; }
+ace_bracket { color: #cc7; }
+ace_tag { color: #FFBD40; }
+ace_attribute { color: #FFF700; }
+ace_error { color: #FF0000; }
+ace_-activeline-background { background: #040; }

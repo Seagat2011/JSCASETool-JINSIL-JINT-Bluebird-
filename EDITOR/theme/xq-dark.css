@@ -1,0 +1,53 @@
+/*
+Copyright (C) 2011 by MarkLogic Corporation
+Author: Mike Brevoort <mike@brevoort.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+ace_ { background: #0a001f; color: #f8f8f8; }
+ace_-selected { background: #27007A; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(39, 0, 122, 0.99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(39, 0, 122, 0.99); }
+ace_gutter { background: #0a001f; border-right: 1px solid #aaa; }
+ace_guttermarker { color: #FFBD40; }
+ace_guttermarker-subtle { color: #f8f8f8; }
+ace_linenumber { color: #f8f8f8; }
+ace_cursor { border-left: 1px solid white; }
+
+ace_keyword { color: #FFBD40; }
+ace_atom { color: #6C8CD5; }
+ace_number { color: #164; }
+ace_def { color: #FFF; text-decoration:underline; }
+ace_variable { color: #FFF; }
+ace_variable-2 { color: #EEE; }
+ace_variable-3 { color: #DDD; }
+ace_property { color:blue; }
+ace_operator { color:blue; }
+ace_comment { color: gray; }
+ace_string { color: #9FEE00; }
+ace_meta { color: yellow; }
+ace_qualifier { color: #FFF700; }
+ace_builtin { color: #30a; }
+ace_bracket { color: #cc7; }
+ace_tag { color: #FFBD40; }
+ace_attribute { color: #FFF700; }
+ace_error { color: #f00; }
+
+ace_activeline-background { background: #27282E; }
+ace_matchingbracket { outline:1px solid grey; color:white !important; }

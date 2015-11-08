@@ -1,0 +1,32 @@
+/* Port of TextMate's Blackboard theme */
+
+ace_ { background: #0C1021; color: #F8F8F8; }
+ace_selected { background: #253B76; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(37, 59, 118, .99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(37, 59, 118, .99); }
+ace_gutter { background: #0C1021; border-right: 0; }
+ace_guttermarker { color: #FBDE2D; }
+ace_guttermarker-subtle { color: #888; }
+ace_linenumber { color: #888; }
+ace_cursor { border-left: 1px solid #A7A7A7; }
+
+ace_keyword { color: #FBDE2D; }
+ace_atom { color: #D8FA3C; }
+ace_number { color: #D8FA3C; }
+ace_def { color: #8DA6CE; }
+ace_variable { color: #FF6400; }
+ace_operator { color: #FBDE2D; }
+ace_comment { color: #AEAEAE; }
+ace_string { color: #61CE3C; }
+ace_string-2 { color: #61CE3C; }
+ace_meta { color: #D8FA3C; }
+ace_builtin { color: #8DA6CE; }
+ace_tag { color: #8DA6CE; }
+ace_attribute { color: #8DA6CE; }
+ace_header { color: #FF6400; }
+ace_hr { color: #AEAEAE; }
+ace_link { color: #8DA6CE; }
+ace_error { background: #9D1E15; color: #F8F8F8; }
+
+ace_activeline-background { background: #3C3636; }
+ace_matchingbracket { outline:1px solid grey;color:white !important; }

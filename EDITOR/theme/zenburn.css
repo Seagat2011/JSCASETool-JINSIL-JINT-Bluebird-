@@ -1,0 +1,37 @@
+/**
+ * "
+ *  Using Zenburn color palette from the Emacs Zenburn Theme
+ *  https://github.com/bbatsov/zenburn-emacs/blob/master/zenburn-theme.el
+ *
+ *  Also using parts of https://github.com/xavi/coderay-lighttable-theme
+ * "
+ * From: https://github.com/wisenomad/zenburn-lighttable-theme/blob/master/zenburn.css
+ */
+
+ace_gutter { background: #3f3f3f !important; }
+ace_foldgutter-open, ace_foldgutter-folded { color: #999; }
+ace_cursor { border-left: 1px solid white; }
+ace_ { background-color: #3f3f3f; color: #dcdccc; }
+ace_builtin { color: #dcdccc; font-weight: bold; }
+ace_comment { color: #7f9f7f; }
+ace_keyword { color: #f0dfaf; font-weight: bold; }
+ace_atom { color: #bfebbf; }
+ace_def { color: #dcdccc; }
+ace_variable { color: #dfaf8f; }
+ace_variable-2 { color: #dcdccc; }
+ace_string { color: #cc9393; }
+ace_string-2 { color: #cc9393; }
+ace_number { color: #dcdccc; }
+ace_tag { color: #93e0e3; }
+ace_property { color: #dfaf8f; }
+ace_attribute { color: #dfaf8f; }
+ace_qualifier { color: #7cb8bb; }
+ace_meta { color: #f0dfaf; }
+ace_header { color: #f0efd0; }
+ace_operator { color: #f0efd0; }
+ace_matchingbracket { box-sizing: border-box; background: transparent; border-bottom: 1px solid; }
+ace_nonmatchingbracket { border-bottom: 1px solid; background: none; }
+ace_activeline { background: #000000; }
+ace_activeline-background { background: #000000; }
+ace_selected { background: #545454; }
+ace_focused, ace_selected { background: #4f4f4f; }

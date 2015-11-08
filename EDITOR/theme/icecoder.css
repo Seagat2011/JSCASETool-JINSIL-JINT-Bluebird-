@@ -1,0 +1,34 @@
+/*
+ICEcoder default theme by Matt Pass, used in code editor available at https://icecoder.net
+*/
+
+ace_ { color: #666; background: #141612; }
+ace_keyword { color: #eee; font-weight:bold; }  /* off-white 1 */
+ace_atom { color: #e1c76e; }                    /* yellow */
+ace_number { color: #6cb5d9; }                  /* blue */
+ace_def { color: #b9ca4a; }                     /* green */
+ace_variable { color: #6cb5d9; }                /* blue */
+ace_variable-2 { color: #cc1e5c; }              /* pink */
+ace_variable-3 { color: #f9602c; }              /* orange */
+ace_property { color: #eee; }                   /* off-white 1 */
+ace_operator { color: #9179bb; }                /* purple */
+ace_comment { color: #97a3aa; }                 /* grey-blue */
+ace_string { color: #b9ca4a; }                  /* green */
+ace_string-2 { color: #6cb5d9; }                /* blue */
+ace_meta { color: #555; }                       /* grey */
+ace_qualifier { color: #555; }                  /* grey */
+ace_builtin { color: #214e7b; }                 /* bright blue */
+ace_bracket { color: #cc7; }                    /* grey-yellow */
+ace_tag { color: #e8e8e8; }                     /* off-white 2 */
+ace_attribute { color: #099; }                  /* teal */
+ace_header { color: #6a0d6a; }                  /* purple-pink */
+ace_quote { color: #186718; }                   /* dark green */
+ace_hr { color: #888; }                         /* mid-grey */
+ace_link { color: #e1c76e; }                    /* yellow */
+ace_error { color: #d00; }                      /* red */
+ace_cursor { border-left: 1px solid white; }
+ace_selected { color: #fff; background: #037; }
+ace_gutter { background: #141612; min-width: 41px; border-right: 0; }
+ace_linenumber { color: #555; cursor: default; }
+ace_matchingbracket { border: 1px solid grey; color: black !important; }
+ace_activeline-background { background: #000; }

@@ -1,0 +1,26 @@
+/* Loosely based on the Midnight Textmate theme */
+
+ace_ { background: #0a001f; color: #f8f8f8; }
+ace_selected { background: #447; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(68, 68, 119, .99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(68, 68, 119, .99); }
+ace_gutter { background: #0a001f; border-right: 1px solid #aaa; }
+ace_guttermarker { color: white; }
+ace_guttermarker-subtle { color: #bbb; }
+ace_linenumber { color: #f8f8f8; }
+ace_cursor { border-left: 1px solid white; }
+ace_comment { color: #6900a1; }
+ace_atom { color: #845dc4; }
+ace_number, ace_attribute { color: #ffd500; }
+ace_keyword { color: #599eff; }
+ace_string { color: #37f14a; }
+ace_meta { color: #7678e2; }
+ace_variable-2, ace_tag { color: #99b2ff; }
+ace_variable-3, ace_def { color: white; }
+ace_bracket { color: #8da6ce; }
+ace_comment { color: #6900a1; }
+ace_builtin, ace_special { color: #ff9e59; }
+ace_link { color: #845dc4; }
+ace_error { color: #9d1e15; }
+ace_activeline-background { background: #1C005A; }
+ace_matchingbracket { outline:1px solid grey; color:white !important; }

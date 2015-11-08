@@ -1,0 +1,33 @@
+
+ace_ { background: #0f0f0f; color: #defdef; }
+ace_selected { background: #515151; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(56, 56, 56, 0.99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(56, 56, 56, 0.99); }
+ace_gutter { background: #555; border-right: 2px solid #314151; }
+ace_guttermarker { color: #222; }
+ace_guttermarker-subtle { color: azure; }
+ace_linenumber { color: #FFFFFF; }
+ace_cursor { border-left: 1px solid #00FF00; }
+
+ace_keyword { color: darkgoldenrod; font-weight: bold; }
+ace_atom { color: #77F; }
+ace_number { color: violet; }
+ace_def { color: #fffabc; }
+ace_variable { color: #abcdef; }
+ace_variable-2 { color: #cacbcc; }
+ace_variable-3 { color: #def; }
+ace_property { color: #fedcba; }
+ace_operator { color: #ff0; }
+ace_comment { color: #7a7b7c; font-style: italic;}
+ace_string { color: #2b4; }
+ace_meta { color: #C9F; }
+ace_qualifier { color: #FFF700; }
+ace_builtin { color: #30aabc; }
+ace_bracket { color: #8a8a8a; }
+ace_tag { color: #FFDD44; }
+ace_attribute { color: #DDFF00; }
+ace_error { color: #FF0000; }
+ace_header { color: aquamarine; font-weight: bold; }
+ace_link { color: blue; }
+
+ace_activeline-background { background: #314151; }

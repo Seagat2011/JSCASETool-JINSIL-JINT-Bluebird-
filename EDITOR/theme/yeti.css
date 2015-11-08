@@ -1,0 +1,44 @@
+/*
+
+    Name:       yeti
+    Author:     Michael Kaminsky (http://github.com/mkaminsky11)
+
+    Original yeti color scheme by Jesse Weed (https://github.com/jesseweed/yeti-syntax)
+
+*/
+
+
+ace_ {
+  background-color: #ECEAE8 !important;
+  color: #d1c9c0 !important;
+  border: none;
+}
+
+ace_gutter {
+  color: #adaba6;
+  background-color: #E5E1DB;
+  border: none;
+}
+ace_cursor { border-left: solid thin #d1c9c0; }
+ace_linenumber { color: #adaba6; }
+ace_selected { background: #DCD8D2; }
+ace_line > div > div::selection { background: #DCD8D2; }
+ace_line > div > div::-moz-selection { background: #DCD8D2; }
+ace_comment { color: #d4c8be; }
+ace_string, ace_string-2 { color: #96c0d8; }
+ace_number { color: #a074c4; }
+ace_variable { color: #55b5db; }
+ace_variable-2 { color: #a074c4; }
+ace_def { color: #55b5db; }
+ace_operator { color: #9fb96e; }
+ace_keyword { color: #9fb96e; }
+ace_atom { color: #a074c4; }
+ace_meta { color: #96c0d8; }
+ace_tag { color: #96c0d8; }
+ace_attribute { color: #9fb96e; }
+ace_qualifier { color: #96c0d8; }
+ace_property { color: #a074c4; }
+ace_builtin { color: #a074c4; }
+ace_variable-3 { color: #96c0d8; }
+ace_activeline-background { background: #E7E4E0; }
+ace_matchingbracket { text-decoration: underline; }

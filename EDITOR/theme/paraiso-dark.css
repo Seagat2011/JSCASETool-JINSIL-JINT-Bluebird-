@@ -1,0 +1,34 @@
+/*
+
+    Name:       Paraíso (Dark)
+    Author:     Jan T. Sott
+
+    Color scheme by Jan T. Sott (https://github.com/idleberg/Paraiso-CodeMirror)
+    Inspired by the art of Rubens LP (http://www.rubenslp.com.br)
+
+*/
+
+ace_ { background: #2f1e2e; color: #b9b6b0; }
+ace_selected { background: #41323f; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(65, 50, 63, .99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(65, 50, 63, .99); }
+ace_gutter { background: #2f1e2e; border-right: 0px; }
+ace_guttermarker { color: #ef6155; }
+ace_guttermarker-subtle { color: #776e71; }
+ace_linenumber { color: #776e71; }
+ace_cursor { border-left: 1px solid #8d8687; }
+ace_comment { color: #e96ba8; }
+ace_atom { color: #815ba4; }
+ace_number { color: #815ba4; }
+ace_property, ace_attribute { color: #48b685; }
+ace_keyword { color: #ef6155; }
+ace_string { color: #fec418; }
+ace_variable { color: #48b685; }
+ace_variable-2 { color: #06b6ef; }
+ace_def { color: #f99b15; }
+ace_bracket { color: #b9b6b0; }
+ace_tag { color: #ef6155; }
+ace_link { color: #815ba4; }
+ace_error { background: #ef6155; color: #8d8687; }
+ace_activeline-background { background: #4D344A; }
+ace_matchingbracket { text-decoration: underline; color: white !important; }

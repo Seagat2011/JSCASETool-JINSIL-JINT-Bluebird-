@@ -1,0 +1,65 @@
+
+ace_quote { color: #090; }
+ace_negative { color: #d44; }
+ace_positive { color: #292; }
+ace_header, .cm-strong { font-weight: bold; }
+ace_em { font-style: italic; }
+ace_link { text-decoration: underline; }
+ace_strikethrough { text-decoration: line-through; }
+ace_header { color: #00f; font-weight: bold; }
+
+ace_atom { color: #219; }
+ace_attribute { color: #00c; }
+ace_bracket { color: #997; }
+ace_comment { color: #333333; }
+ace_def { color: #00f; }
+ace_em { font-style: italic; }
+ace_error { color: #f00; }
+ace_hr { color: #999; }
+ace_invalidchar { color: #f00; }
+ace_keyword { font-weight:bold; }
+ace_link { color: #00c; text-decoration: underline; }
+ace_meta { color: #555; }
+ace_negative { color: #d44; }
+ace_positive { color: #292; }
+ace_qualifier { color: #555; }
+ace_strikethrough { text-decoration: line-through; }
+ace_string { color: #006400; }
+ace_string-2 { color: #f50; }
+ace_strong { font-weight: bold; }
+ace_tag { color: #170; }
+ace_variable { color: #8B2252; }
+ace_variable-2 { color: #05a; }
+ace_variable-3 { color: #085; }
+
+ace_invalidchar { color: #f00; }
+
+/* ASN */
+ace_accessTypes,
+ace_compareTypes { color: #27408B; }
+ace_cmipVerbs { color: #8B2252; }
+ace_modifier { color:#D2691E; }
+ace_status { color:#8B4545; }
+ace_storage { color:#A020F0; }
+ace_tags { color:#006400; }
+
+/* CFG */
+ace_externalCommands { color: #8B4545; font-weight:bold; }
+ace_fileNCtrlMaskOptions,
+ace_sectionTitle { color: #2E8B57; font-weight:bold; }
+
+/* TTCN */
+ace_booleanConsts,
+ace_otherConsts,
+ace_verdictConsts { color: #006400; }
+ace_configOps,
+ace_functionOps,
+ace_portOps,
+ace_sutOps,
+ace_timerOps,
+ace_verdictOps { color: #0000FF; }
+ace_preprocessor,
+ace_templateMatch,
+ace_ttcn3Macros { color: #27408B; }
+ace_types { color: #A52A2A; font-weight:bold; }
+ace_visibilityModifiers { font-weight:bold; }

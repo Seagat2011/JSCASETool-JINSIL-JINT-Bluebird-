@@ -1,0 +1,24 @@
+
+ace_ { background: #112435; color: white; }
+ace_selected { background: #38566F; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(56, 86, 111, 0.99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(56, 86, 111, 0.99); }
+ace_gutter { background: #1F4661; border-right: 7px solid #3E7087; }
+ace_guttermarker { color: white; }
+ace_guttermarker-subtle { color: #3E7087; }
+ace_linenumber { color: white; }
+ace_cursor { border-left: 1px solid white; }
+ace_comment { color: #999; font-style:italic; line-height: 1em; }
+ace_atom { color: #F4C20B; }
+ace_number, ace_attribute { color: #82C6E0; }
+ace_keyword { color: #F0F; }
+ace_string { color: #F08047; }
+ace_meta { color: #F0F; }
+ace_variable-2, ace_tag { color: #7BD827; }
+ace_variable-3, ace_def { color: white; }
+ace_bracket { color: #F0F; }
+ace_link { color: #F4C20B; }
+ace_matchingbracket { color:#F0F !important; }
+ace_builtin, ace_special { color: #FF9D00; }
+ace_error { color: #AF2018; }
+ace_activeline-background { background: #173047; }

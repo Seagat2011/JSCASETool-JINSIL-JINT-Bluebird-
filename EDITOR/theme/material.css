@@ -1,0 +1,53 @@
+/*
+
+    Name:       material
+    Author:     Michael Kaminsky (http://github.com/mkaminsky11)
+
+    Original material color scheme by Mattia Astorino (https://github.com/equinusocio/material-theme)
+
+*/
+
+ace_ {
+  background-color: #263238;
+  color: rgba(233, 237, 237, 1);
+}
+ace_gutter {
+  background: #263238;
+  color: rgb(83,127,126);
+  border: none;
+}
+ace_guttermarker, ace_guttermarker-subtle, ace_linenumber { color: rgb(83,127,126); }
+ace_cursor { border-left: 1px solid #f8f8f0; }
+ace_selected { background: rgba(255, 255, 255, 0.15); }
+ace_focused div::selection { background: rgba(255, 255, 255, 0.10); }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(255, 255, 255, 0.10); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(255, 255, 255, 0.10); }
+
+ace_activeline-background { background: rgba(0, 0, 0, 0); }
+ace_keyword { color: rgba(199, 146, 234, 1); }
+ace_operator { color: rgba(233, 237, 237, 1); }
+ace_variable-2 { color: #80CBC4; }
+ace_variable-3 { color: #82B1FF; }
+ace_builtin { color: #DECB6B; }
+ace_atom { color: #F77669; }
+ace_number { color: #F77669; }
+ace_def { color: rgba(233, 237, 237, 1); }
+ace_error {
+  color: rgba(255, 255, 255, 1.0);
+  background-color: #EC5F67;
+}
+ace_string { color: #C3E88D; }
+ace_string-2 { color: #80CBC4; }
+ace_comment { color: #546E7A; }
+ace_variable { color: #82B1FF; }
+ace_tag { color: #80CBC4; }
+ace_meta { color: #80CBC4; }
+ace_attribute { color: #FFCB6B; }
+ace_property { color: #80CBAE; }
+ace_qualifier { color: #DECB6B; }
+ace_variable-3 { color: #DECB6B; }
+ace_tag { color: rgba(255, 83, 112, 1); }
+ace_matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}

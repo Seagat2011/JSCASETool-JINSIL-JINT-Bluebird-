@@ -1,0 +1,43 @@
+/*
+
+    Name:       seti
+    Author:     Michael Kaminsky (http://github.com/mkaminsky11)
+
+    Original seti color scheme by Jesse Weed (https://github.com/jesseweed/seti-syntax)
+
+*/
+
+ace_ {
+  background-color: #151718 !important;
+  color: #CFD2D1 !important;
+  border: none;
+}
+ace_gutters {
+  color: #404b53;
+  background-color: #0E1112;
+  border: none;
+}
+ace_cursor { border-left: solid thin #f8f8f0; }
+ace_linenumber { color: #6D8A88; }
+ace_focused_selected { background: rgba(255, 255, 255, 0.10); }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(255, 255, 255, 0.10); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(255, 255, 255, 0.10); }
+ace_comment { color: #41535b; }
+ace_string, ace_string-2 { color: #55b5db; }
+ace_number { color: #cd3f45; }
+ace_variable { color: #55b5db; }
+ace_variable-2 { color: #a074c4; }
+ace_def { color: #55b5db; }
+ace_keyword { color: #ff79c6; }
+ace_operator { color: #9fca56; }
+ace_keyword { color: #e6cd69; }
+ace_atom { color: #cd3f45; }
+ace_meta { color: #55b5db; }
+ace_tag { color: #55b5db; }
+ace_attribute { color: #9fca56; }
+ace_qualifier { color: #9fca56; }
+ace_property { color: #a074c4; }
+ace_variable-3 { color: #9fca56; }
+ace_builtin { color: #9fca56; }
+ace_activeline-background { background: #101213; }
+ace_matchingbracket { text-decoration: underline; color: white !important; }

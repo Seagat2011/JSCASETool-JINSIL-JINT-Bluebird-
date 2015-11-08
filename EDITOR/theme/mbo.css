@@ -1,0 +1,37 @@
+/****************************************************************/
+/*   Based on mbonaci's Brackets mbo theme                      */
+/*   https://github.com/mbonaci/global/blob/master/Mbo.tmTheme  */
+/*   Create your own: http://tmtheme-editor.herokuapp.com       */
+/****************************************************************/
+
+ace_ { background: #2c2c2c; color: #ffffec; }
+ace_selected { background: #716C62; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(113, 108, 98, .99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(113, 108, 98, .99); }
+ace_gutters { background: #4e4e4e; border-right: 0px; }
+ace_guttermarker { color: white; }
+ace_guttermarker-subtle { color: grey; }
+ace_linenumber { color: #dadada; }
+ace_cursor { border-left: 1px solid #ffffec; }
+
+ace_comment { color: #95958a; }
+ace_atom { color: #00a8c6; }
+ace_number { color: #00a8c6; }
+
+ace_property, ace_attribute { color: #9ddfe9; }
+ace_keyword { color: #ffb928; }
+ace_string { color: #ffcf6c; }
+ace_string-property { color: #ffffec; }
+
+ace_variable { color: #ffffec; }
+ace_variable-2 { color: #00a8c6; }
+ace_def { color: #ffffec; }
+ace_bracket { color: #fffffc; font-weight: bold; }
+ace_tag { color: #9ddfe9; }
+ace_link { color: #f54b07; }
+ace_error { border-bottom: #636363; color: #ffffec; }
+ace_qualifier { color: #ffffec; }
+
+ace_activeline-background { background: #494b41; }
+ace_matchingbracket { color: #222 !important; }
+ace_matchingtag { background: rgba(255, 255, 255, .37); }

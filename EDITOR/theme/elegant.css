@@ -1,0 +1,13 @@
+
+ace_number, ace_string, ace_atom { color: #762; }
+ace_comment { color: #262; font-style: italic; line-height: 1em; }
+ace_meta { color: #555; font-style: italic; line-height: 1em; }
+ace_variable { color: black; }
+ace_variable-2 { color: #b11; }
+ace_qualifier { color: #555; }
+ace_keyword { color: #730; }
+ace_builtin { color: #30a; }
+ace_link { color: #762; }
+ace_error { background-color: #fdd; }
+ace_activeline-background { background: #e8f2ff; }
+ace_matchingbracket { outline:1px solid grey; color:black !important; }

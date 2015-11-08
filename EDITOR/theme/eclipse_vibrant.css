@@ -1,0 +1,23 @@
+
+ace_meta { color: #FF1717; }
+ace_keyword { line-height: 1em; font-weight: bold; color: #7F0055; }
+ace_atom { color: #219; }
+ace_number { color: #164; }
+ace_def { color: #00f; }
+ace_variable { color: black; }
+ace_variable-2 { color: #0000C0; }
+ace_variable-3 { color: #0000C0; }
+ace_property { color: black; }
+ace_operator { color: black; }
+ace_comment { color: #3F7F5F; }
+ace_string { color: #2A00FF; }
+ace_string-2 { color: #f50; }
+ace_qualifier { color: #555; }
+ace_builtin { color: #30a; }
+ace_bracket { color: #cc7; }
+ace_tag { color: #170; }
+ace_attribute { color: #00c; }
+ace_link { color: #219; }
+ace_error { color: #f00; }
+ace_activeline-background { background: #e8f2ff; }
+ace_matchingbracket { outline:1px solid grey; color:black !important; }

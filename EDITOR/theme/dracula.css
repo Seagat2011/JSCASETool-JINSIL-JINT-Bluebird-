@@ -1,0 +1,41 @@
+/*
+
+    Name:       dracula
+    Author:     Michael Kaminsky (http://github.com/mkaminsky11)
+
+    Original dracula color scheme by Zeno Rocha (https://github.com/zenorocha/dracula-theme)
+
+*/
+
+
+ace_, ace_gutter {
+  background-color: #282a36 !important;
+  color: #f8f8f2 !important;
+  border: none;
+}
+ace_gutters { color: #282a36; }
+ace_cursor { border-left: solid thin #f8f8f0; }
+ace_linenumber { color: #6D8A88; }
+ace_focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.10); }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(255, 255, 255, 0.10); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(255, 255, 255, 0.10); }
+ace_comment { color: #6272a4; }
+ace_string, ace_string-2 { color: #f1fa8c; }
+ace_number { color: #bd93f9; }
+ace_variable { color: #50fa7b; }
+ace_variable-2 { color: white; }
+ace_def { color: #ffb86c; }
+ace_keyword { color: #ff79c6; }
+ace_operator { color: #ff79c6; }
+ace_keyword { color: #ff79c6; }
+ace_atom { color: #bd93f9; }
+ace_meta { color: #f8f8f2; }
+ace_tag { color: #ff79c6; }
+ace_attribute { color: #50fa7b; }
+ace_qualifier { color: #50fa7b; }
+ace_property { color: #66d9ef; }
+ace_builtin { color: #50fa7b; }
+ace_variable-3 { color: #50fa7b; }
+
+ace_activeline-background { background: rgba(255,255,255,0.1); }
+ace_matchingbracket { text-decoration: underline; color: white !important; }

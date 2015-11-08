@@ -1,0 +1,35 @@
+/* Based on Sublime Text's Monokai theme */
+
+ace_ { background: #272822; color: #f8f8f2; }
+ace_selected { background: #49483E; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: rgba(73, 72, 62, .99); }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: rgba(73, 72, 62, .99); }
+ace_gutter { background: #272822; border-right: 0px; }
+ace_guttermarker { color: white; }
+ace_guttermarker-subtle { color: #d0d0d0; }
+ace_linenumber { color: #d0d0d0; }
+ace_cursor { border-left: 1px solid #f8f8f0; }
+
+ace_comment { color: #75715e; }
+ace_atom { color: #ae81ff; }
+ace_number { color: #ae81ff; }
+
+ace_property, ace_attribute { color: #a6e22e; }
+ace_keyword { color: #f92672; }
+ace_string { color: #e6db74; }
+
+ace_variable { color: #f8f8f2; }
+ace_variable-2 { color: #9effff; }
+ace_variable-3 { color: #66d9ef; }
+ace_def { color: #fd971f; }
+ace_bracket { color: #f8f8f2; }
+ace_tag { color: #f92672; }
+ace_header { color: #ae81ff; }
+ace_link { color: #ae81ff; }
+ace_error { background: #f92672; color: #f8f8f0; }
+
+ace_activeline-background { background: #373831; }
+ace_matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}

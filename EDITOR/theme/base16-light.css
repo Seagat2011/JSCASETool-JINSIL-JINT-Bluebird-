@@ -1,0 +1,38 @@
+/*
+
+    Name:       Base16 Default Light
+    Author:     Chris Kempson (http://chriskempson.com)
+
+    CodeMirror template by Jan T. Sott (https://github.com/idleberg/base16-chrome-devtools)
+    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+*/
+
+ace_ { background: #f5f5f5; color: #202020; }
+ace_selected { background: #e0e0e0; }
+ace_line::selection, ace_line > div::selection, ace_line > div > div::selection { background: #e0e0e0; }
+ace_line::-moz-selection, ace_line > div::-moz-selection, ace_line > div > div::-moz-selection { background: #e0e0e0; }
+ace_gutter { background: #f5f5f5; border-right: 0px; }
+ace_guttermarker { color: #ac4142; }
+ace_guttermarker-subtle { color: #b0b0b0; }
+ace_linenumber { color: #b0b0b0; }
+ace_cursor { border-left: 1px solid #505050; }
+
+ace_comment { color: #8f5536; }
+ace_atom { color: #aa759f; }
+ace_number { color: #aa759f; }
+
+ace_property, ace_attribute { color: #90a959; }
+ace_keyword { color: #ac4142; }
+ace_string { color: #f4bf75; }
+
+ace_variable { color: #90a959; }
+ace_variable-2 { color: #6a9fb5; }
+ace_def { color: #d28445; }
+ace_bracket { color: #202020; }
+ace_tag { color: #ac4142; }
+ace_link { color: #aa759f; }
+ace_error { background: #ac4142; color: #505050; }
+
+ace_activeline-background { background: #DDDCDC; }
+ace_matchingbracket { text-decoration: underline; color: white !important; }

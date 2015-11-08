@@ -1,0 +1,12 @@
+
+ace_comment { color: #a86; }
+ace_keyword { line-height: 1em; font-weight: bold; color: blue; }
+ace_string { color: #a22; }
+ace_builtin { line-height: 1em; font-weight: bold; color: #077; }
+ace_special { line-height: 1em; font-weight: bold; color: #0aa; }
+ace_variable { color: black; }
+ace_number, ace_atom { color: #3a3; }
+ace_meta { color: #555; }
+ace_link { color: #3a3; }
+ace_activeline-background { background: #e8f2ff; }
+ace_matchingbracket { outline:1px solid grey; color:black !important; }
