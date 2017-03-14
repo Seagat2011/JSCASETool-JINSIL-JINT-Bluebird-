@@ -1,3 +1,291 @@
+
+Object.prototype.traceV2 = function(code,tab,reps,ref,cb){
+    ref || (ref = "");
+    var pad = tab.dup(reps);
+    if(this.length){
+        this.map(
+        function(u){
+            var ref_tmp
+            cb && (ref_tmp = cb(u.name,ref))
+            code.push(pad + ref_tmp + u.name)
+            u.code.length && code.push(pad + ref_tmp + u.code.replace(/\n/g,"\n"+tab))
+            /*
+            u.nodes && u.nodes.length && u.nodes.map(
+            function(v){
+                code.push(pad + ref_tmp + v.name)
+                return v
+            })
+            */
+            return u
+        })
+    }
+    else{
+        code.push("")
+    }
+}
+/*
+Object.prototype.REGEX[g_reConstructor] = function(w)
+{
+  try{
+    var idx = this.length-1;
+    var u = w.match(g_reConstructorCapture)[1]
+    var np = u.noParams()
+    var v = this[idx].name;
+    var isModuleConstructor = (np == v);
+    if(isModuleConstructor){
+      this[idx]._constructor.push(u);
+    }
+  }
+  catch(e){
+    var u = ""
+  }
+  return u
+}
+*/
+    /*
+    intf["callstack"].nodes.map(
+    function(u){
+        cstart.push("", "function __" + u.name + "{", tab + "var self = this")
+        u.code.length && cstart.push(tab + u.code.replace(/\n/g,"\n"+tab))
+        u.nodes && u.nodes.trace(cstart,tab,0)
+        u.nodes && u.nodes.map(
+        function(v){
+            cstart.push(tab + "self." + v.name)
+            return v
+        })
+        cstart.push("}", "var " + u.name.noParams() + " = new __" + u.name)
+        return u 
+    })
+    */
+function ModuleProps(){
+    this.__properties = [ 
+        "globalAttributes",
+        "globalProperties",
+        "_constructor",
+        "memberAttributes",
+        "memberProperties",
+        "_properties",
+        "_attributes"
+    ]    
+    this.globalAttributes = []
+    this.globalProperties = []
+    this._constructor = []
+    this._properties = []
+    this._attributes = []
+    this.memberAttributes = []
+    this.memberProperties = []
+}
+            if(renameObjectLR){
+                v = renameObjectLR[0]
+                u = renameObjectLR[1]
+                screenBuffer[i] = u
+                //srcStackTrace.setLines(srcStackTrace.getLines().replace(/^(\s*).*>>\s*(.*)$/,"$1$2"));
+            }
+            else
+            if(renameObjectRL){
+                u = renameObjectRL[0]
+                v = renameObjectRL[1]
+                screenBuffer[i] = u
+                //srcStackTrace.setLines(srcStackTrace.getLines().replace(/^(.*)\s+<<.*$/,"$1"));
+            }
+    var cstart = [];
+    intf["callstack"] = callstack
+    intf["callstack"].nodes.map( //['/** JBLAST - AUTO GENERATED CODE **/\n\n']
+    function(u){
+        cstart.push("", "function __" + u.name + "{", tab + "var self = this")
+        u.code.length && cstart.push(tab + u.code)
+        u.nodes && u.nodes.trace(cstart,tab,0)
+        u.nodes && u.nodes.map(
+        function(v){
+            cstart.push(tab + "self." + v.name)
+            return v
+        })
+        cstart.push("}", "var " + u.name.noParams() + " = new __" + u.name)
+        return u 
+    })
+    //cstart.push('\n/************* JBLAST *************/')
+    srcTranslated.setLine(cstart.join('\n'))
+    var entity = []
+    var archive = {}
+    entity.map(function(w) {
+        var s = buildproc(w)
+        if (s) {
+            cstart.push(s + '\n')
+        }
+        return w
+    })
+function buildproc(source) {
+    var s = ''
+    if (source instanceof Array) {
+        source.map(function(u) {
+            if (typeof (u) == 'string') {
+                s += u
+            } else if (u instanceof Array) {
+                s += buildproc(u)
+            }
+            return u
+        })
+    } else 
+    if (typeof (source) == 'string') {
+        s = source
+    }
+    return s
+}
+function set_gparent_codebody(arch, en, s_name, code, indent) {
+    var name = 1
+    var codebody = 5
+    var last_entry
+    var p_s_name = arch[s_name].parent.s_name
+    var addcode = true
+    en[codebody].map(function(s, i) {
+        if (s[name] == p_s_name) {
+            last_entry = i
+            s[codebody].map(function(u) {
+                if (u[name] == s_name) {
+                    addcode = false
+                }
+                return u
+            })
+        }
+        return s
+    })
+    if (addcode && (typeof (last_entry) == 'number')) {
+        en[codebody][last_entry][codebody].push(code)
+    }
+    return en
+}
+function updatecallstack(arch, stack, indent) {
+    if (indent == 0) {
+        stack = [arch]
+    } else 
+    if (stack.length == indent) {
+        stack.push(arch)
+    } else 
+    if (stack.length < indent) {
+        stack.push(arch)
+    } else 
+    if (stack.length > indent) {
+        while (stack.length != indent) {
+            stack.pop()
+        }
+        stack.push(arch)
+    }
+    return stack
+}
+        /*
+        while (!entity[indent]) {
+            entity.push([])
+        }
+        if (indent < 1) {
+            if (!archive[w]) {
+                archive[w] = {}
+                archive[w].indent = 0
+                archive[w].s_name = w
+                archive[w].name = 1
+                archive[w].params = 3
+                archive[w].codebody = 5
+                entity[0].push(['\nfunction _', w, '(', [], '){\n', [minor_tab + intf.module[intf.archive[archive[w].s_name]].replace(/\n/gm,'\n' + minor_tab) + '\n'], '\n}\n_', w, '.prototype = new Object()\n', w, ' = new _', w, '()'])
+                archive[w].level = entity[0].length - 1
+            }
+            callstack = updatecallstack(archive[w], callstack, indent)
+        } else if (indent < 2) {
+            if (!archive[w]) {
+                archive[w] = {}
+                archive[w].indent = indent
+                archive[w].s_name = w
+                archive[w].name = 1
+                archive[w].params = 3
+                archive[w].codebody = 5
+                archive[w].level = entity[0].length - 1
+                callstack = updatecallstack(archive[w], callstack, indent)
+                archive[w].parent = {s_name: callstack[indent - 1].s_name,indent: callstack[indent - 1].indent,level: callstack[indent - 1].level}
+                archive[w].godparent = {s_name: callstack[0].s_name,indent: callstack[0].indent,level: callstack[0].level}
+                var gpindent = archive[w].godparent.indent
+                var gplevel = archive[w].godparent.level
+                var codebody = archive[w].codebody
+                entity[gpindent][gplevel][codebody].push([minor_tab + 'this["', w, '"] = function(', [], '){\n', [major_tab + intf.module[intf.archive[archive[w].s_name]].replace(/\n/gm,'\n' + major_tab) + '\n'], '\n' + minor_tab + '}\n'])
+            }
+            indent = archive[w].indent
+            var parent = archive[w].parent.s_name
+            entity[indent].push([parent + '.', w, '(', [], ')', '\n'])
+        } else {
+            if (!archive[w]) {
+                archive[w] = {}
+                archive[w].s_name = w
+                archive[w].name = 1
+                archive[w].params = 3
+                archive[w].codebody = 5
+                archive[w].indent = indent
+                archive[w].level = entity[0].length - 1
+                callstack = updatecallstack(archive[w], callstack, indent)
+                archive[w].parent = {s_name: callstack[indent - 1].s_name,indent: callstack[indent - 1].indent,level: callstack[indent - 1].level}
+                archive[w].godparent = {s_name: callstack[0].s_name,indent: callstack[0].indent,level: callstack[0].level}
+                var gpindent = archive[w].godparent.indent
+                var gplevel = archive[w].godparent.level
+                var codebody = archive[w].codebody
+                entity[gpindent][gplevel][codebody].unshift([minor_tab + 'this["', w, '"] = function(', [], '){\n', [major_tab + intf.module[intf.archive[archive[w].s_name]].replace(/\n/gm,'\n' + major_tab) + '\n'], '\n' + minor_tab + '}\n'])
+            }
+            var gpindent = archive[w].godparent.indent
+            var gplevel = archive[w].godparent.level
+            entity[gpindent][gplevel] = set_gparent_codebody(archive, entity[gpindent][gplevel], w, [major_tab + 'this.', w, '(', [], ')', '\n'], indent)
+        }
+        // test(indent) //
+        */
+var idx = n.match(/\s/g) || {length: 0}
+        var indent = idx.length
+        // var w = n.replace(/\s+/g, '') //
+        // callstack.nodes.updateTrace(w,indent) //
+        if(indent==0){
+            iStart = I
+            callstack.push(n)
+        }
+        else{
+            var pad = ""
+            var J = Math.min(indent,iStart+1)
+            for(var j=iStart;j<J;j++){
+                if(pad){
+                    pad += "."
+                }
+                pad += buffer2[j]
+            }
+            if(pad){
+                pad += "."
+            }
+            callstack.push(pad+n)
+            if(indent<lastIndent){
+                iStart = I
+            }
+        }
+        lastIndent = indent
+Object.prototype.updateTrace = function(w,indent,parent){
+    if(indent--){
+        if(
+        (this.length != null) &&
+        (this.length > 0)
+        ){
+            var i = this.length-1 
+            if(
+            (i == 0) ||
+            (parent && (parent != this[i].name))
+            ){
+                parent = this[i].name
+                this[i].nodes.updateTrace(w,indent,parent)
+            }
+            else
+            if(i){
+                this[i].nodes.updateTrace(w,0)
+            }
+        }
+        else{
+            this.addNode(w)
+        }        
+    }
+    else{
+        var i = this.indexOf(w)
+        this[i] || (this.addNode(w))
+    }
+}
+
 var intf = {
     'default': function() {
         srcTranslated.value = 'Functionality not implemented.'

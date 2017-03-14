@@ -32,61 +32,61 @@ SCRIPT TYPE:
 */
 
 function entag(tag,w){
-    return ("<"+tag+w+"</"+tag)
+    return ("<"+tag+">"+w+"</"+tag+">")
 }
 
 function ace_variable(w){
     if(!(w.hasFE)){
-        w.token = entag("ace_variable>",w.token)
+        w.token = entag("ace_variable",w.token)
     }
     return w
 }
 
 function ace_keyword(w){
     if(!(w.hasFE)){
-        w.token = entag("ace_keyword>",w.token)
+        w.token = entag("ace_keyword",w.token)
     }
     return w
 }
 
 function ace_operator(w){
     if(!(w.hasFE)){
-        w.token = entag("ace_operator>",w.token)
+        w.token = entag("ace_operator",w.token)
     }
     return w
 }
 
 function ace_storage(w){
     if(!(w.hasFE)){
-        w.token = entag("ace_storage>",w.token)
+        w.token = entag("ace_storage",w.token)
     }
     return w
 }
 
 function ace_constant(w){
     if(!(w.hasFE)){
-        w.token = entag("ace_constant>",w.token)
+        w.token = entag("ace_constant",w.token)
     }
     return w
 }
 
 function ace_support(w){
     if(!(w.hasFE)){
-        w.token = entag("ace_support>",w.token)
+        w.token = entag("ace_support",w.token)
     }
     return w
 }
 
 function ace_bool(w){
     if(!(w.hasFE)){
-        w.token = entag("ace_bool>",w.token)
+        w.token = entag("ace_bool",w.token)
     }
     return w
 }
 
 function ace_tilde(w){
     if(!(w.hasFE)){
-        w.token = entag("ace_tilde>",w.token)
+        w.token = entag("ace_tilde",w.token)
     }
     return w
 }

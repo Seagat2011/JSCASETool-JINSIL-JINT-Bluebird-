@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" hasbrowserhandlers="true"><head>
+<title>js-blaze engine 1.0.0.0</title>
+<meta charset="utf-8">
+<link rel="stylesheet" media="all" href="CSS/index.css">
+<script src="JS/meta-obj.js"></script>
+<script src="JS/MD5.js"></script>
+<script src="JS/object.js"></script>
+<script src="JS/array.js"></script>
+<script src="JS/keywords.js"></script>
+<script src="JS/prop-window.js"></script>
+<script src="JS/property-object.js"></script>
+</head>
+<body onload="loader()">
+<p class="cssHEADER cssICON" onclick="addLibrary()" title="Insert Library">________________________________________________<br><img src="IMG/addFile.png"/></p>
+<div id="srcLibraries" class="cssSrc"></div>
+<p class="cssHEADER cssICON" onclick="addTrace()" title="Insert stack trace +">________________________________________________<br><img src="IMG/addTrace.png"/></p>
+<p>
+<div class="cssSrc" id="srcCode"></div>
+<input value=" Preview " onclick="previewTool()" type="button">
+<input value="clear source window" onclick="clear_window()" type="button">
+<input value="Load" onclick="loadFile()" type="button">
+<input value="Save" onclick="saveFile()" type="button">
+<input value="SaveAs" onclick="saveAsFile()" type="button">
+<input id="btnTranslate" value="Generate MD5" onclick="MD5()" type="button">
+<span id="progress" class="cssProgress" style="display:none;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<br>
+<textarea class="cssCode" id="srcTranslated" placeholder="Copyright (c) 2017 - Abdul H. Shabazz - All Rights Reserved"></textarea>
+</p>
+<footer>
+<script src="JS/index.js"></script>
+</footer>
+</body></html>

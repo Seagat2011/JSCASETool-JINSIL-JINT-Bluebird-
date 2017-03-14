@@ -1,7 +1,7 @@
 # JSCASETool-JINSIL-JINT-Bluebird-
 HTML5 / CSS3 inline javascript editor  Supports inline javascript, stacktracing, and inline macros
 
-### WHY USE BLUEBIRD ?
+### ABOUT BLUEBIRD
  
 - Bluebird allows javascript inlining, 
     allowing code to be instantiated as
@@ -9,13 +9,13 @@ HTML5 / CSS3 inline javascript editor  Supports inline javascript, stacktracing,
     setup of objects, arrays, or functions, 
     or variables (its actually not allowed)
     
-    Simply trace through the code as an
+    Simply trace through your code as an
     object would and describe what 
     happens in every module, step-by-step,
     declaring variables and functions, as
     needed 
 
-    Bluebird then converts the entire trace 
+    Bluebird then converts the trace 
     to javascript
     
 ### RULES
@@ -263,83 +263,197 @@ if(indent){
 ### EXAMPLE STACKTRACE
 
 ```javascript
-Parse
- find_global_axioms
- match_local_phrases
- generate_global_phrase
- split_local_phrase_obj
-  replace_global_elements_with_delim_obj2
-  replace_first_local_phrase_delim_obj2
-  replace_remaining_delim_obj2
-  replace_remaining_delim_obj2
-Library
- Reload_local_vars
+// Parse.js
+find_global_axioms
+match_local_phrases
+generate_global_phrase
+split_local_phrase_obj
+ replace_global_elements_with_delim_obj2
+ replace_first_local_phrase_delim_obj2
+ replace_remaining_delim_obj2
+ replace_remaining_delim_obj2
+// Library.js
+Reload_local_vars
   serialize
-Parse
- serializeFile
+// Parse.js
+serializeFile
 ``` 
 
 #### GENERATED JAVASCRIPT .. 
 
 ```javascript
+// Parse.js
 
-function _Parse(){
-  this["replace_remaining_delim_obj2"] = function(){
-
-  }
-  this["replace_first_local_phrase_delim_obj2"] = function(){
-
-  }
-  this["replace_global_elements_with_delim_obj2"] = function(){
-
-  }
-  this["find_global_axioms"] = function(){
-
-  }
-  this["match_local_phrases"] = function(){
-
-  }
-  this["generate_global_phrase"] = function(){
-
-  }
-  this["split_local_phrase_obj"] = function(){
-    this.replace_global_elements_with_delim_obj2()
-    this.replace_first_local_phrase_delim_obj2()
-    this.replace_remaining_delim_obj2()
-
-  }
-  this["serializeFile"] = function(){
-
-  }
+function Parse()
+{
+  var self = this
+}
+Parse.prototype.replace_remaining_delim_obj2 = function()
+{
 
 }
-_Parse.prototype = new Object()
-Parse = new _Parse()
-function _Library(){
-  this["serialize"] = function(){
-
-  }
-  this["Reload_local_vars"] = function(){
-    this.serialize()
-
-  }
+Parse.prototype.replace_first_local_phrase_delim_obj2 = function()
+{
 
 }
-_Library.prototype = new Object()
-Library = new _Library()
+Parse.prototype.replace_global_elements_with_delim_obj2 = function()
+{
 
-Parse.find_global_axioms()
-Parse.match_local_phrases()
-Parse.generate_global_phrase()
-Parse.split_local_phrase_obj()
-Library.Reload_local_vars()
-Parse.serializeFile()
+}
+Parse.prototype.find_global_axioms = function()
+{
+
+}
+Parse.prototype.match_local_phrases = function()
+{
+
+}
+Parse.prototype.generate_global_phrase = function()
+{
+
+}
+Parse.prototype.split_local_phrase_obj = function()
+{
+  this.replace_global_elements_with_delim_obj2()
+  this.replace_first_local_phrase_delim_obj2()
+  this.replace_remaining_delim_obj2()
+  this.replace_remaining_delim_obj2()
+}
+Parse.prototype.serializeFile = function()
+{
+
+}
+
+// Library.js
+
+function Library()
+{
+  var self = this
+}
+Library.prototype.serialize = function()
+{
+
+}
+Library.prototype.Reload_local_vars = function()
+{
+  this.serialize()
+}
 ```
+
+### EXAMPLE 2
+
+```javascript
+// JS_BLAZE_EDITOR.js
+g_global(a, b)
+ attachEvent(id, obj)
+ m_show()
+ showResults()
+ga_globalAttribute
+JS_BLAZE_EDITOR(a, b, c)
+a_attribute
+refresh()
+ma_memberAttribute
+m_member(id)
+ getDocumentID(id)
+ attachListener(id, obj)
+```
+
+#### GENERATED JAVASCRIPT .. 
+
+```javascript
+// JS_BLAZE_EDITOR.js
+
+var ga_globalAttribute = 0;
+
+function g_global(a,b)
+{
+  var __m = new JS_BLAZE_EDITOR(a, b)
+  __m.attachEvent(id,obj)
+  __m.m_show()
+  __m.showResults()
+}
+
+function JS_BLAZE_EDITOR(a,b,c)
+{
+  var self = this;
+  this.ma_memberAttribute = 0;
+  this.m_show = function()
+  {
+  
+  }
+  this.m_member = function(id)
+  {
+    self.getDocumentID(id)
+    self.attachListener(id,obj)
+  }
+}
+JS_BLAZE_EDITOR.prototype.refresh = function()
+{
+
+}
+JS_BLAZE_EDITOR.prototype.attachEvent = function(id,obj)
+{
+
+}
+JS_BLAZE_EDITOR.prototype.getDocumentID = function(id)
+{
+
+}
+JS_BLAZE_EDITOR.prototype.attachListener = function(id,obj)
+{
+
+}
+JS_BLAZE_EDITOR.prototype.showResults = function()
+{
+
+}
+JS_BLAZE_EDITOR.prototype.a_attribute = 0
+```
+
+Use numbered line-comment(s) (eg //0, //0-5) or the wildcard (//_) as substitution macros: 
+
+Example 
+
+```javascript
+
+// Stacktrace window 
+
+g_global(a, b) 
+ attachEvent(id, obj) 
+ m_show() 
+ showResults() 
+ showMoreResults() 
+
+// Function definition window for g_global(a, b) 
+
+[code] 
+//0 
+[code]
+//1-2 
+[code] 
+//_
+
+
+// Build Module window 
+
+function g_global(a, b)
+{
+  var _m = new JS_BLAZE_EDITOR(a,b,c)
+  [code]
+  _m.attachEvent(id, obj) 
+  [code] 
+  _m.m_show() 
+  _m.showResults() 
+  [code] 
+  _m.showMoreResults()
+} 
+```
+
 ## CONDENSED OBJECT LOADING 
 
 Bluebird supports condensed object loading, as well as internal operator overloading 
 
-### EXAMPLE #1 (condensed object loading : ortho-map)
+### EXAMPLE #1 (condensed object loading : ortho-map)  
 
 ```javascript
 a => {
@@ -383,7 +497,7 @@ var a = function(){
 
 ```javascript
 a => {
-  [0 1 3] <= 1,
+  [0, 1, 3] <= 1,
 }
 ```
 
@@ -406,7 +520,7 @@ var a = function(){
 
 ```javascript
 a => {
-  [0 1 3] <= [2 6 4],
+  [0, 1, 3] <= [2, 6, 4],
 }
 ```
 
@@ -430,11 +544,11 @@ var a = function(){
 
 ```javascript
 a => {
-  [0 2 3] <= [2 6 4],
+  [0, 2, 3] <= [2, 6, 4],
 }
 
 b => {
-  [2 5 8] <= [1 9 0],
+  [2, 5, 8] <= [1, 9, 0],
 }
 
 console.log(a+b) // { 0:2, 2:7, 3:4, 5:9, 8:0 }
@@ -451,5 +565,5 @@ b => {
   [2,5,8] <= [1 9 0],
 }
 
-console.log(a+b) // { [0, 3] <= [2 6 4], [2] <= [2 6 4 1 9 0], [5, 8] <= [1 9 0],  }
+console.log(a+b) // { [0, 3] <= [2 6 4], [2] <= [2 6 4 1 9 0], [5, 8] <= [1 9 0]  }
 ```

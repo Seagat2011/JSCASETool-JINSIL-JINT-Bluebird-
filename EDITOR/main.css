@@ -12,6 +12,7 @@
     padding-left:52px;
     position:absolute;
     z-index:0;
+    font-size:9pt;
 }
 .v-rows {
     font-family:monospace;
@@ -22,7 +23,7 @@
     padding-top:4px;
     padding-right:8px;
     border:1px solid gray;
-    font-size:10pt;
+    font-size:9pt;
     float:left;
     background:#dedede;
     color:#4e4e4e;

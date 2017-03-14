@@ -421,6 +421,7 @@ function getText(o) {
         ret = o.innerText
     } else {
         ret = o.innerHTML
+        .replace(/<\s*\\?\s*br\s*>$/i, '') // replace final newline //
         .replace(/<\s*\\?\s*br\s*>/gmi, '\n')
         .replace(/<\s*\\?\s*.+\s*>/gmi, '')
         .replace(/&#?[a-zA-Z][a-z]+;/gm, function(v) {
@@ -830,11 +831,11 @@ function _editor(obj) {
     var __rows__ = obj.vrows
     this.toTEXTBUFFER
     this.getLines = function() {
-        return getText(te).split(/\n/gm)
+        return getText(te).split(/\n/)
     }
     this.setLine = function(i, w) {
         var status = 'default-replace-all'
-        var ret = getText(te).split(/\n/gm)
+        var ret = getText(te).split(/\n/)
         if (i in ret) {
             status = true
             ret[i] = w
@@ -904,7 +905,7 @@ function __BLACK_SPADE_EDITOR__() {
             "    color:rgba(0,0,0,0.2);\n" + 
             "    background:rgba(0,0,0,0); z-index:1;\n" + 
             "    border:1px solid gray;'></div>\n" + 
-            "<div class=code-window id=de" + ihandle + " spellcheck='false' autocapitalize='off' autocorrect='off'></div>\n" + 
+            "<div class=code-window id=de" + ihandle + " style='border:1px solid gray;' spellcheck='false' autocapitalize='off' autocorrect='off'></div>\n" + 
             "</div>\n" + 
             "</div>"
             obj.te = document.getElementById(texteditor)
