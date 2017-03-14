@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" hasBrowserHandlers="true">
 <head>
-<title>JSCASE Tool (JINSIL / JINT Blue) 1.0.0.0</title>
+<title>JSCASE Tool (JINSIL / JINT Blue) - Blaze - 1.0.0.0</title>
 <meta http-equiv="Content-Type" content="application/html; charset=utf-8"/>
 <link rel='stylesheet' media='all' href='CSS/index.css'>
 <link id="__theme__" rel="stylesheet" media="all" href="EDITOR/theme/chrome.css">
@@ -900,23 +900,20 @@ necessary.  Here is a sample; alter the names:
   &lt;signature of Ty Coon&gt;, 1 April 1990
   Ty Coon, President of Vice
 </div>
-
 </div>
 </div>
 <div id=cssCOVER></div>
 </head>
 <body onload='loader()'>
-
 <div style='text-align:right'>
 <a id=lnkGNU href=#cssMENU class=cssMENU_LABEL onclick='cssMENU.style.width = "40%";
     txtGNU.style.display = "block";'
     >GNU GPL / LGPL</a>
 </div>
-
 <div id=divLibrary style='display:none'></div>
 <div id=selected style='display:none'></div>
-
 <textarea class=cssCode id=txtarea_srcStackTrace placeholder='Step 1: Enter stacktrace then press UPDATE UI TOOLS'></textarea>
+<div style="display:none">
 <br><br>
 <input id=btnTranslate type=button value=' update ui tools ' onclick='translatorTool()'/>
 <br><br>
@@ -924,60 +921,20 @@ necessary.  Here is a sample; alter the names:
 <select id=selBoxModules onclick=refresh_module(this.selectedIndex)>
 <option default=0>  no modules </option>
 </select>
-</div>
 <br>
-
+</div>
 <textarea id=txtarea_srcCode></textarea>
-
-<p>
 <input id=btnTranslate type=button value=' update ui tools ' onclick='translatorTool()'/>
-<input id=btnTranslate type=button value='click to generate MD5' onclick='MD5()'/>
-<input id=btnTranslate type=button value='clear source window' onclick='clear_window()'/>
-<!--<input id=btnTranslate type=button value=' refresh modules ' onclick='refresh_module()'/>-->
-
 <select id=selBoxGlobals>
 <option default=0>  no globals </option>
 </select>
-<br><br>
-build module conversion 
-<!--
-<select id=selBoxSource>
-<option>  JavaScript </option>
-<option>  text shift+F11 </option>
-<option>  Ada </option>
-<option>  Assembler </option>
-<option>  C/C++ </option>
-<option> C# </option>
-<option>  CSS3 </option>
-<option>  D </option>
-<option>  Difference </option>
-<option>  Errorlist </option>
-<option>  Fortran </option>
-<option>  HTML F12 </option>
-<option>  Java </option>
-<option default>  JavaScript </option>
-<option>  Lisp </option>
-<option>  Lua </option>
-<option>  Matlab </option>
-<option>  Makefile shift+Ctl+F11 </option>
-<option>  Pascal </option>
-<option>  Perl </option>
-<option>  PHP </option>
-<option>  Properties </option>
-<option>  Python </option>
-<option>  Ruby </option>
-<option>  Shell </option>
-<option>  SQL </option>
-<option>  TCL </option>
-<option>  TeX </option>
-<option>  VB </option>
-<option>  VBScript </option>
-<option>  Verilog </option>
-<option>  VHDL </option>
-<option>  XML shift+F12 </option>
-</select>
--->
-to 
+</div>
+<p>
+<input id=btnTranslate type=button value='click to generate MD5' onclick='MD5()'/>
+<input id=btnTranslate type=button value='clear source window' onclick='clear_window()'/>
+<br>
+<br>
+build module using - 
 <select id=selBoxToSource>
 <option>  text shift+F11 </option>
 <option>  Ada </option>

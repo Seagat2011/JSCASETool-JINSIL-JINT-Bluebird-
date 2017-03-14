@@ -47,9 +47,11 @@ function clear_window() {
 function MD5() {
     srcTranslated.setLine( 
         'stacktrace - ' + 
-        Math.md5(srcStackTrace.getLines()) + 
+        Math.md5(srcStackTrace.getLines())
+        /*    + 
         '\nsnapshot - ' + 
         Math.md5(srcSnapShot.value)
+        */
         )
 }
 var intf = {

@@ -1,4 +1,8 @@
-
+p {
+  font-family:"monospace";
+  font-size:9pt;
+  color:#4e4e4e;
+}
 .cssCode {
     width:100%;
     display:inline;
