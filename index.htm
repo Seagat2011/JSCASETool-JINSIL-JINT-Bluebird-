@@ -896,18 +896,15 @@ necessary.  Here is a sample; alter the names:
 <div id=selected style='display:none'></div>
 
 <textarea class=cssCode id=txtarea_srcStackTrace placeholder='Step 1: Enter stacktrace then press UPDATE UI TOOLS'></textarea>
-<br><br>
+<p>
 <input id=btnTranslate type=button value=' update ui tools ' onclick='translatorTool()'/>
-<br><br>
 <div id=__main style='color:#4e4e4e;font-size:10;font-family:"liberation serif";'>
 <select id=selBoxModules onclick=refresh_module(this.selectedIndex)>
 <option default=0>  no modules </option>
 </select>
 </div>
-<br>
-
+</p>
 <textarea id=txtarea_srcCode></textarea>
-
 <p>
 <!--
 <select id=selBoxSource>
@@ -982,7 +979,7 @@ as
 <option>  VHDL </option>
 <option>  XML shift+F12 </option>
 </select>
-<input id=btnTranslate type=button value=' update ui tools ' onclick='translatorTool()'/>
+<!--<input id=btnTranslate type=button value=' update ui tools ' onclick='translatorTool()'/>-->
 <input id=btnTranslate type=button value='click to generate MD5' onclick='MD5()'/>
 <input id=btnTranslate type=button value='clear source window' onclick='clear_window()'/>
 <!--<input id=btnTranslate type=button value=' refresh modules ' onclick='refresh_module()'/>-->
