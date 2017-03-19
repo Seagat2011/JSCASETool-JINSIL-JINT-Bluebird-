@@ -1,4 +1,111 @@
 
+Object.prototype.lastElement = function(){
+    var i = this.length>0? this.length-1 : 0;
+    return this[i]
+}
+Object.prototype.add = function(op,name,parent){
+    var self = this
+    var result
+    var _p = /parent/i
+    var _s = /sibling/i
+    var _c = /child/i
+    var _propID = {}
+    _propID.__p = _p
+    _propID.__s = _s
+    _propID.__c = _c
+    _propID[_p] = _propID["parent"] =  function(w,x,r)
+    {
+        var ret
+        var re = new RegExp(this.__p)
+        if(r.match(re)){
+            ret = self.parent.nodes.addNode(w,x.parent.parent || "unassigned")
+        }
+        return ret
+    }
+    _propID[_s] = _propID["sibling"] = function(w,x,r)
+    {
+        var ret
+        var re = new RegExp(this.__s)
+        if(r.match(re)){
+            ret = self.nodes.addNode(w,x.parent)
+        }
+        return ret
+    }
+    _propID[_c] = _propID["child"] = function(w,x,r)
+    {
+        var ret
+        var re = new RegExp(this.__c)
+        if(r.match(re)){
+            ret = self.nodes.addNode(w,x) // self.nodes.lastElement().nodes.addNode(w,x)
+        }
+        return ret
+    }
+   result = 
+    _propID[op](name,parent,op) || 
+    _propID[_p](name,parent,op) || 
+    _propID[_s](name,parent,op) || 
+    _propID[_c](name,parent,op);
+    return result
+}
+var g_currentNode
+Object.prototype.updateTrace = function(w,indent){
+    var result
+    var op
+    /*
+    var i = this.findIndexOf(w)
+    var indexNotFound = (i<0);
+    var tailNodeReached = (indent == 0);
+    if(indexNotFound){
+        i = this.length - 1
+    }
+    var indexOutOfRange = (indexNotFound  && (i<0));
+    */
+    this.indent>-1 || (this.indent = 0);
+    g_currentNode || (g_currentNode = this);
+    if(indent>g_currentNode.indent)
+    {
+        op = "child"
+    }
+    else
+    if(indent<g_currentNode.indent)
+    {
+        op = "parent"
+    }
+    else
+    if(indent==g_currentNode.indent)
+    {
+        op = "sibling"
+    }
+    if(op)
+    {
+        result = g_currentNode = g_currentNode.add(op,w,g_currentNode)
+        g_currentNode.indent = indent
+    }
+    return result
+    /*
+    if(!indexNotFound){
+        result = this[i]
+        i = this.length-1
+        if(!tailNodeReached)
+        {
+            this[i].nodes.push(result)
+        }
+        else
+        {
+            this.push(result)
+        }
+    }
+    else
+    if((tailNodeReached && indexNotFound ) || indexOutOfRange){
+        result = this.addNode(w,parent)
+    }
+    else{
+        parent = this[i].name
+        result = this[i].nodes.updateTrace(w,--indent,parent)
+    }
+    return result
+    */
+}
 Object.prototype.traceV2 = function(code,tab,reps,ref,cb){
     ref || (ref = "");
     var pad = tab.dup(reps);

@@ -34,9 +34,9 @@ SCRIPT TYPE:
 
 */
 
-function node(w,pid){
-    this.name = w || "unassigned"
-    this.parent = pid || "unassigned"
+function node(name,parent){
+    this.name = name || "unassigned"
+    this.parent = parent || "unassigned"
     this.code = [];
     this.nodes = [];
 }

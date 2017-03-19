@@ -33,6 +33,7 @@ SCRIPT TYPE:
 
 function include(file, onload)
 {
+	var document_body = document.head || document.getElementsByTagName("head")[0]
 	if(file.endsWith(".js"))
 	{
 		var js = document.createElement("script");
@@ -43,7 +44,7 @@ function include(file, onload)
 		{
 			js.onload = onload;
 		}
-		document.body.appendChild(js);
+		document_body.appendChild(js);
 	}
 	else 
   if(file.endsWith(".css"))
@@ -51,6 +52,6 @@ function include(file, onload)
 		var css = document.createElement("link");
 		css.href = file;
 		css.rel = "stylesheet";
-		document.body.appendChild(css);
+		document_body.appendChild(css);
 	}
 }

@@ -2,29 +2,8 @@
 <head>
 <title>JSCASE Tool (JINSIL / JINT Blue) 1.0.0.0</title>
 <meta http-equiv="Content-Type" content="application/html; charset=utf-8"/>
-<link rel='stylesheet' media='all' href='CSS/index.css'>
-<link id="__theme__" rel="stylesheet" media="all" href="EDITOR/theme/chrome.css">
-<link id="__theme__" rel="stylesheet" media="all" href="EDITOR/main.css">
-<link id="__theme__" rel="stylesheet" media="all" href="EDITOR-2/CSS/editor.css">
-<link id="__theme__" rel="stylesheet" media="all" href="EDITOR-2/CSS/prop-window.css">
-<script id="__mode__" src="EDITOR/mode/javascript_highlight_rules.js"></script>
-<script src="EDITOR/main.js"></script>
-<script src="EDITOR-2/JS/module.js"></script>
-<script src="EDITOR-2/JS/object.js"></script>
-<script src="EDITOR-2/JS/array.js"></script>
-<script src="EDITOR-2/JS/keywords.js"></script>
-<script src="EDITOR-2/JS/prop-window.js"></script>
-<script src="EDITOR-2/JS/regex.js"></script>
-<script src="EDITOR-2/JS/editor.js"></script>
-<script src='JS/MD5.js'></script>
-<script src='JS/Array.js'></script>
-<script src='JS/Object.js'></script>
-<script src='JS/Object.regex.js'></script>
-<script src='JS/Node.js'></script>
-<script src='JS/MODULES/TEST.js'></script>
-<script src='JS/MODULES/GLOBALS.js'></script>
-<script src='JS/MODULES/javascript.js'></script>
-<script src='JS/index.js'></script>
+<script src='JS/Include.js'></script>
+<script src='JS/index.loader.js'></script>
 <div id=cssMENU>
 <a href=# class=cssCANCEL>&times;</a>
 <div class=cssFRAME>
@@ -930,16 +909,6 @@ necessary.  Here is a sample; alter the names:
 <textarea id=txtarea_srcCode></textarea>
 
 <p>
-<input id=btnTranslate type=button value=' update ui tools ' onclick='translatorTool()'/>
-<input id=btnTranslate type=button value='click to generate MD5' onclick='MD5()'/>
-<input id=btnTranslate type=button value='clear source window' onclick='clear_window()'/>
-<!--<input id=btnTranslate type=button value=' refresh modules ' onclick='refresh_module()'/>-->
-
-<select id=selBoxGlobals>
-<option default=0>  no globals </option>
-</select>
-<br><br>
-build module conversion 
 <!--
 <select id=selBoxSource>
 <option>  JavaScript </option>
@@ -977,7 +946,8 @@ build module conversion
 <option>  XML shift+F12 </option>
 </select>
 -->
-to 
+<input id=btnTranslate type=button value=' build module ' onclick='generate_module()'/> 
+as  
 <select id=selBoxToSource>
 <option>  text shift+F11 </option>
 <option>  Ada </option>
@@ -1012,18 +982,15 @@ to
 <option>  VHDL </option>
 <option>  XML shift+F12 </option>
 </select>
-<br>
-<br> <input id=btnTranslate type=button value=' build module ' onclick='generate_module()'/>
+<input id=btnTranslate type=button value=' update ui tools ' onclick='translatorTool()'/>
+<input id=btnTranslate type=button value='click to generate MD5' onclick='MD5()'/>
+<input id=btnTranslate type=button value='clear source window' onclick='clear_window()'/>
+<!--<input id=btnTranslate type=button value=' refresh modules ' onclick='refresh_module()'/>-->
+
+<select id=selBoxGlobals>
+<option default=0>  no globals </option>
+</select>
 <p/>
 <textarea class=cssTranslated id=txtarea_srcTranslated placeholder='Author - Abdul H. Shabazz, Copyright (c) 2015 - All Rights Reserved'></textarea>
-<footer>
-<script>
-    JS_BLAZE_EDITOR = new Editor();
-    srcCode = BLACK_SPADE_EDITOR.fromTextArea("txtarea_srcCode")
-    srcCode.setLine("// Step 2: Enter code for module then PRESS UPDATE UI TOOLS or BULD MODULE")
-    srcTranslated = BLACK_SPADE_EDITOR.fromTextArea("txtarea_srcTranslated")
-    srcStackTrace = JS_BLAZE_EDITOR.fromTextArea("txtarea_srcStackTrace")[0];
-</script>
-</footer>
 </body>
 </html>

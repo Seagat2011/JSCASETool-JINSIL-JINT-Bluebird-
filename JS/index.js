@@ -39,6 +39,26 @@ if(window.navigator.vendor.match(/google/i)){
     VALUE = "value"
 }
 function loader() {
+    JS_BLAZE_EDITOR = new Editor();
+    srcCode = BLACK_SPADE_EDITOR.fromTextArea("txtarea_srcCode")
+    srcCode.setLine("// Step 2: Enter code for module then PRESS UPDATE UI TOOLS or BULD MODULE")
+    srcTranslated = BLACK_SPADE_EDITOR.fromTextArea("txtarea_srcTranslated")
+    srcStackTrace = JS_BLAZE_EDITOR.fromTextArea("txtarea_srcStackTrace")[0];
+    srcStackTrace.setLines([
+        "// JS_BLAZE_EDITOR.js",
+        "g_globalProperty(a, b)",
+        " attachEvent(id, obj)",
+        " m_show()",
+        " showResults()",
+        "ga_globalAttribute",
+        "JS_BLAZE_EDITOR(a, b, c)",
+        "a_attributeNeedsRefresh",
+        "refresh()",
+        "ma_memberAttributeID",
+        "m_memberFromTextArea(id)",
+        " getDocumentID(id)",
+        " attachListener(w, cb)"
+    ].join("\n"))
     srcTranslated.setLine('')
 }
 function clear_window() {
